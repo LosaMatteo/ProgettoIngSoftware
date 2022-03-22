@@ -2,7 +2,7 @@ from Data.gestioneObject import gestObj
 from Model.Abbonamento import Abbonamento
 
 
-class Client(object):
+class Cliente(object):
     gestAll = Abbonamento()
     lista_clienti = []
     gobj = gestObj()

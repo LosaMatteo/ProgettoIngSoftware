@@ -1,48 +1,48 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from Cliente.Dieta.dieta_chetogenica import dieta_chetogenica
-from Cliente.Dieta.dieta_ipercalorica import dieta_ipercalorica
-from Cliente.Dieta.dieta_ipocalorica import dieta_ipocalorica
-from Data.MessageBox import messageBox
-from Model.Cliente import Client
+from Python.Cliente.Dieta.dieta_chetogenica import dieta_chetogenica
+from Python.Cliente.Dieta.dieta_ipercalorica import dieta_ipercalorica
+from Python.Cliente.Dieta.dieta_ipocalorica import dieta_ipocalorica
+from Python.Data.MessageBox import messageBox
+from Python.Model.Cliente import Cliente
 
 
 class dieta_cliente(object):
     username = ""
-    cliente = Client()
+    objCliente = Cliente()
     msg = messageBox()
 
-    def salva_ogg_cliente(self):
-        self.cliente = self.cliente.getObject(self.username)
-        self.cliente.altezza = str(self.lineEdit_2.text())
-        self.cliente.peso = str(self.lineEdit.text())
-        self.cliente.eta = str(self.lineEdit_4.text())
+    def salvaOggettoCliente(self):
+        self.objCliente = self.objCliente.getObject(self.username)
+        self.objCliente.altezza = str(self.lineEdit_2.text())
+        self.objCliente.peso = str(self.lineEdit.text())
+        self.objCliente.eta = str(self.lineEdit_4.text())
 
-    def calcola_bmi(self):
+    def calcolaBMI(self):
         try:
             altezza = float(self.lineEdit_2.text()) / 100
             peso = float(self.lineEdit.text())
-            self.salva_ogg_cliente()
+            self.salvaOggettoCliente()
             bmi = peso / (altezza * altezza)
             self.label_3.setText(str(bmi.__round__(2)))
         except Exception:
             self.msg.show_popup_exception("Non hai inserito altezza, peso ed età!")
 
-    def scrivi_su_file(self):
+    def scriviSuFile(self):
         try:
             file = open("./Cliente/Dieta/file_dieta/" + self.username + ".txt", "w")
             file.write(
                 self.label_3.text() + "-" + self.label_6.text() + "-" + self.label_13.text() + "-" + self.lineEdit.text() + "\n")
-            file.write(self.plainTextEdit.toPlainText())
+            file.write(self.ptxSegnalazioni.toPlainText())
             file.close()
             self.msg.show_popup_ok("Dati fisiologici e preferenze salvate")
         except Exception:
             self.msg.show_popup_exception("Errore nel salvataggio")
 
-    def calcola_peso(self):
+    def calcolaPeso(self):
         try:
             altezza = float(self.lineEdit_2.text()) / 100
             eta = int(self.lineEdit_4.text())
-            self.salva_ogg_cliente()
+            self.salvaOggettoCliente()
             sesso = self.comboBox.currentText()
             coefficiente_peso_maschio = 100
             coefficiente_peso_femmina = 112
@@ -55,7 +55,7 @@ class dieta_cliente(object):
         except Exception:
             self.msg.show_popup_exception("Non hai inserito altezza, peso ed età!")
 
-    def calcolo_ADS(self):
+    def calcoloADS(self):
         lavoro = self.comboBox_2.currentText()
         attivita_fisica = self.comboBox_3.currentText()
         if lavoro == "Lavori edile" or lavoro == "Lavori agricoli" or lavoro == "Operaio/a(pesante)":
@@ -72,29 +72,29 @@ class dieta_cliente(object):
         coefficiente = coefficiente_attivita + coefficiente_lavoro
         return coefficiente
 
-    def calcolo_calorie(self):
+    def calcoloCalorie(self):
         try:
-            self.salva_ogg_cliente()
-            if self.cliente.gender == "maschio":
-                MB = 66 + (13.7 * float(self.cliente.peso)) + (5 * float(self.cliente.altezza)) \
-                     - (6.8 * float(self.cliente.eta))
+            self.salvaOggettoCliente()
+            if self.objCliente.gender == "maschio":
+                MB = 66 + (13.7 * float(self.objCliente.peso)) + (5 * float(self.objCliente.altezza)) \
+                     - (6.8 * float(self.objCliente.eta))
                 self.label_10.setText(str(MB.__round__(2)))
-                fabbisogno_calorico = 1 * float(self.cliente.peso) * 24
-                fabbisogno_calorico += (fabbisogno_calorico * self.calcolo_ADS()) / 100
+                fabbisogno_calorico = 1 * float(self.objCliente.peso) * 24
+                fabbisogno_calorico += (fabbisogno_calorico * self.calcoloADS()) / 100
                 self.label_13.setText(str(fabbisogno_calorico.__round__(2)))
                 self.label_10.setText(str(MB.__round__(2)))
-            elif self.cliente.gender == "femmina":
-                MB = 655 + (9.6 * float(self.cliente.peso)) + (1.8 * float(self.cliente.altezza)) \
-                     - (4.7 * float(self.cliente.eta))
+            elif self.objCliente.gender == "femmina":
+                MB = 655 + (9.6 * float(self.objCliente.peso)) + (1.8 * float(self.objCliente.altezza)) \
+                     - (4.7 * float(self.objCliente.eta))
                 self.label_10.setText(str(MB.__round__(2)))
-                fabbisogno_calorico = 0.9 * float(self.cliente.peso) * 24
-                fabbisogno_calorico += (fabbisogno_calorico * self.calcolo_ADS()) / 100
+                fabbisogno_calorico = 0.9 * float(self.objCliente.peso) * 24
+                fabbisogno_calorico += (fabbisogno_calorico * self.calcoloADS()) / 100
                 self.label_13.setText(str(fabbisogno_calorico.__round__(2)))
                 self.label_10.setText(str(MB.__round__(2)))
         except Exception:
             self.msg.show_popup_exception("Non hai inserito altezza, peso ed età!")
 
-    def popola_lista_dieta(self):
+    def popolaListaDieta(self):
         with open("./Cliente/Dieta/file_dieta/dieta.txt", "r") as openfile:
             lettura = openfile.read()
         lettura = lettura.split("\n")
@@ -102,31 +102,31 @@ class dieta_cliente(object):
             self.listWidget.addItem(elem)
             self.listWidget.show()
 
-    def apri_dieta_chetogenica(self):
+    def apriDietaChetogenica(self):
         self.dieta_chetogenica = QtWidgets.QMainWindow()
         self.ui = dieta_chetogenica()
         self.ui.setupUi(self.dieta_chetogenica)
         self.dieta_chetogenica.show()
 
-    def apri_dieta_ipocalorica(self):
+    def apriDietaIpocalorica(self):
         self.dieta_ipocalorica = QtWidgets.QMainWindow()
         self.ui = dieta_ipocalorica()
         self.ui.setupUi(self.dieta_ipocalorica)
         self.dieta_ipocalorica.show()
 
-    def apri_dieta_ipercalorica(self):
+    def apriDietaIpercalorica(self):
         self.dieta_ipercalorica = QtWidgets.QMainWindow()
         self.ui = dieta_ipercalorica()
         self.ui.setupUi(self.dieta_ipercalorica)
         self.dieta_ipercalorica.show()
 
-    def apri_interfacce(self):
+    def apriInterfacce(self):
         if self.listWidget.currentItem().text() == "dieta chetogenica":
-            self.apri_dieta_chetogenica()
+            self.apriDietaChetogenica()
         elif self.listWidget.currentItem().text() == "dieta ipocalorica":
-            self.apri_dieta_ipocalorica()
+            self.apriDietaIpocalorica()
         elif self.listWidget.currentItem().text() == "dieta ipercalorica":
-            self.apri_dieta_ipercalorica()
+            self.apriDietaIpercalorica()
 
     def setupUi(self, Form, username):
         self.username = username
@@ -263,9 +263,9 @@ class dieta_cliente(object):
         self.toolBox.addItem(self.page_3, "")
         self.page_4 = QtWidgets.QWidget()
         self.page_4.setObjectName("page_4")
-        self.plainTextEdit = QtWidgets.QPlainTextEdit(self.page_4)
-        self.plainTextEdit.setGeometry(QtCore.QRect(80, 50, 441, 261))
-        self.plainTextEdit.setObjectName("plainTextEdit")
+        self.ptxSegnalazioni = QtWidgets.QPlainTextEdit(self.page_4)
+        self.ptxSegnalazioni.setGeometry(QtCore.QRect(80, 50, 441, 261))
+        self.ptxSegnalazioni.setObjectName("ptxSegnalazioni")
         self.label_15 = QtWidgets.QLabel(self.page_4)
         self.label_15.setGeometry(QtCore.QRect(30, 10, 511, 31))
         font = QtGui.QFont()
@@ -276,22 +276,21 @@ class dieta_cliente(object):
         self.label_15.setObjectName("label_15")
         self.btnSalva = QtWidgets.QPushButton(self.page_4)
         self.btnSalva.setGeometry(QtCore.QRect(412, 327, 111, 21))
-        self.btnSalva.setObjectName("pushButton_5")
+        self.btnSalva.setObjectName("btnSalva")
         self.toolBox.addItem(self.page_4, "")
         self.retranslateUi(Form)
         self.toolBox.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(Form)
-
-        self.popola_lista_dieta()
-        self.btnBMI.clicked.connect(self.calcola_bmi)
-        self.btnPesoForma.clicked.connect(self.calcola_peso)
-        self.btnCalorie.clicked.connect(self.calcolo_calorie)
-        self.listWidget.clicked.connect(self.apri_interfacce)
-        self.btnSalva.clicked.connect(self.scrivi_su_file)
+        self.popolaListaDieta()
+        self.btnBMI.clicked.connect(self.calcolaBMI)
+        self.btnPesoForma.clicked.connect(self.calcolaPeso)
+        self.btnCalorie.clicked.connect(self.calcoloCalorie)
+        self.listWidget.clicked.connect(self.apriInterfacce)
+        self.btnSalva.clicked.connect(self.scriviSuFile)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "Dieta cliente"))
         self.label.setText(_translate("Form",
                                       "<html><head/><body><p><span style=\" font-weight:600;\">Inserisci i tuoi dati:</span><br/></p><p>Altezza(cm): <br/></p><p>Peso(kg):<br/></p><p>Età:<br/></p><p>Sesso:</p></body></html>"))
         self.comboBox.setItemText(0, _translate("Form", "maschio"))

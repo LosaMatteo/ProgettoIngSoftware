@@ -1,68 +1,68 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QDate
-from Data.MessageBox import messageBox
-from Model.Cliente import Client
+from Python.Data.MessageBox import messageBox
+from Python.Model.Cliente import Cliente
 
 
 class gestione_cliente(object):
-    def __init__(self, name):
-        self.name = name
+    def __init__(self, nome):
+        self.nome = nome
 
-    obj = Client()
-    messaggio = messageBox()
+    objCliente = Cliente()
+    objMessaggio = messageBox()
 
     def visualizza(self):
-        name = self.name
+        nome = self.nome
         data_odierna = QDate.currentDate()
-        oggCl = self.obj.getAttributi(name)
-        self.txtNome.setText(oggCl.name)
-        self.txtCognome.setText(oggCl.surname)
-        self.cmbSesso.setCurrentText(oggCl.gender)
-        self.txtDataDiNascita.setDate(oggCl.data_nascita)
-        self.txtLuogoDiNascita.setText(oggCl.luogo_nascita)
-        self.txtCodiceFiscale.setText(oggCl.codice_fiscale)
-        self.dtdDataIscrizione.setDate(oggCl.gestAll.data_iscrizione)
-        if oggCl.gestAll.tipo_di_abbonamento.__contains__("mensile"):
+        objCliente = self.objCliente.getAttributi(nome)
+        self.txtNome.setText(objCliente.name)
+        self.txtCognome.setText(objCliente.surname)
+        self.cmbSesso.setCurrentText(objCliente.gender)
+        self.txtDataDiNascita.setDate(objCliente.data_nascita)
+        self.txtLuogoDiNascita.setText(objCliente.luogo_nascita)
+        self.txtCodiceFiscale.setText(objCliente.codice_fiscale)
+        self.dtdDataIscrizione.setDate(objCliente.gestAll.data_iscrizione)
+        if objCliente.gestAll.tipo_di_abbonamento.__contains__("mensile"):
             if data_odierna > self.dtdDataIscrizione.date().addMonths(1):
-                self.messaggio.show_popup_ok("abbonamento scaduto")
-        elif oggCl.gestAll.tipo_di_abbonamento.__contains__("annuale"):
+                self.objMessaggio.show_popup_ok("abbonamento scaduto")
+        elif objCliente.gestAll.tipo_di_abbonamento.__contains__("annuale"):
             if data_odierna > self.dtdDataIscrizione.date().addYears(1):
-                self.messaggio.show_popup_ok("abbonamento scaduto")
-        self.dtdScadenzaCertMedico.setDate(oggCl.gestAll.data_certificato_medico)
-        self.cmbTipoAbbonamento.setCurrentText(oggCl.gestAll.tipo_di_abbonamento)
+                self.objMessaggio.show_popup_ok("abbonamento scaduto")
+        self.dtdScadenzaCertMedico.setDate(objCliente.gestAll.data_certificato_medico)
+        self.cmbTipoAbbonamento.setCurrentText(objCliente.gestAll.tipo_di_abbonamento)
 
     def salvamodifiche(self):
         if self.txtNome.text() != "" and self.txtCognome.text() != "" \
                 and self.txtLuogoDiNascita.text() != "" and self.txtCodiceFiscale.text() != "":
             try:
-                name = self.name
-                oggCl = self.obj.getAttributi(name)
-                if oggCl.name == self.txtNome.text() and oggCl.surname == self.txtCognome.text() and \
-                    oggCl.gender == self.cmbSesso.currentText() and \
-                    oggCl.data_nascita == self.txtDataDiNascita.date() and \
-                    oggCl.luogo_nascita == self.txtLuogoDiNascita.text() and \
-                    oggCl.codice_fiscale == self.txtCodiceFiscale.text() and \
-                    oggCl.gestAll.data_iscrizione == self.dtdDataIscrizione.date() and \
-                    oggCl.gestAll.data_certificato_medico == self.dtdScadenzaCertMedico.date() and \
-                    oggCl.gestAll.tipo_di_abbonamento == self.cmbTipoAbbonamento.currentText():
-                    self.messaggio.show_popup_listWidget("Nessun campo modificato.")
+                nome = self.nome
+                objCliente = self.objCliente.getAttributi(nome)
+                if objCliente.name == self.txtNome.text() and objCliente.surname == self.txtCognome.text() and \
+                    objCliente.gender == self.cmbSesso.currentText() and \
+                    objCliente.data_nascita == self.txtDataDiNascita.date() and \
+                    objCliente.luogo_nascita == self.txtLuogoDiNascita.text() and \
+                    objCliente.codice_fiscale == self.txtCodiceFiscale.text() and \
+                    objCliente.gestAll.data_iscrizione == self.dtdDataIscrizione.date() and \
+                    objCliente.gestAll.data_certificato_medico == self.dtdScadenzaCertMedico.date() and \
+                    objCliente.gestAll.tipo_di_abbonamento == self.cmbTipoAbbonamento.currentText():
+                    self.objMessaggio.show_popup_listWidget("Nessun campo modificato.")
                 else:
-                    self.obj.rimuovi(name)
-                    oggCl.name = self.txtNome.text()
-                    oggCl.surname = self.txtCognome.text()
-                    oggCl.gender = self.cmbSesso.currentText()
-                    oggCl.data_nascita = self.txtDataDiNascita.date()
-                    oggCl.luogo_nascita = self.txtLuogoDiNascita.text()
-                    oggCl.codice_fiscale = self.txtCodiceFiscale.text()
-                    oggCl.gestAll.data_iscrizione = self.dtdDataIscrizione.date()
-                    oggCl.gestAll.data_certificato_medico = self.dtdScadenzaCertMedico.date()
-                    oggCl.gestAll.tipo_di_abbonamento = self.cmbTipoAbbonamento.currentText()
-                    self.obj.addToList(oggCl)
-                    self.messaggio.show_popup_ok("Modifiche salvate con successo!")
+                    self.objCliente.rimuovi(nome)
+                    objCliente.name = self.txtNome.text()
+                    objCliente.surname = self.txtCognome.text()
+                    objCliente.gender = self.cmbSesso.currentText()
+                    objCliente.data_nascita = self.txtDataDiNascita.date()
+                    objCliente.luogo_nascita = self.txtLuogoDiNascita.text()
+                    objCliente.codice_fiscale = self.txtCodiceFiscale.text()
+                    objCliente.gestAll.data_iscrizione = self.dtdDataIscrizione.date()
+                    objCliente.gestAll.data_certificato_medico = self.dtdScadenzaCertMedico.date()
+                    objCliente.gestAll.tipo_di_abbonamento = self.cmbTipoAbbonamento.currentText()
+                    self.objCliente.addToList(objCliente)
+                    self.objMessaggio.show_popup_ok("Modifiche salvate con successo!")
             except(Exception):
-                self.messaggio.show_popup_exception("Errore durante il salvataggio!")
+                self.objMessaggio.show_popup_exception("Errore durante il salvataggio!")
         else:
-            self.messaggio.show_popup_listWidget("Uno o più campi risultano vuoti.")
+            self.objMessaggio.show_popup_listWidget("Uno o più campi risultano vuoti.")
 
 
     def pulisciCaselle(self):
@@ -78,18 +78,18 @@ class gestione_cliente(object):
 
     def rimuovi(self):
         try:
-            if self.messaggio.show_popup_question("Sei sicuro di voler eliminare il cliente?"):
-                self.obj.rimuovi(self.name)
+            if self.objMessaggio.show_popup_question("Sei sicuro di voler eliminare il cliente?"):
+                self.objCliente.rimuovi(self.nome)
                 self.pulisciCaselle()
             else:
                 return
         except(Exception):
-            self.messaggio.show_popup_exception("Errore!")
+            self.objMessaggio.show_popup_exception("Errore!")
 
     def reset(self):
-        name = self.name
-        self.obj.reset(name)
-        self.messaggio.show_popup_ok("La password è stata ripristinata")
+        nome = self.nome
+        self.objCliente.reset(nome)
+        self.objMessaggio.show_popup_ok("La password è stata ripristinata")
 
     def setupUi(self, MainWindow):
         self.finestra = MainWindow
@@ -211,7 +211,7 @@ class gestione_cliente(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Informazioni - " + self.name))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Informazioni - " + self.nome))
         self.lblTitolo.setText(_translate("MainWindow", "Informazioni di"))
         self.cmbSesso.setItemText(0, _translate("MainWindow", "Maschio"))
         self.cmbSesso.setItemText(1, _translate("MainWindow", "Femmina"))
@@ -236,7 +236,7 @@ class gestione_cliente(object):
         self.btnSalva.setText(_translate("MainWindow", "Salva"))
         self.btnRimuovi.setText(_translate("MainWindow", "Rimuovi"))
         self.btn_Indietro.setText(_translate("MainWindow", "Indietro"))
-        self.lblNomeCliente.setText(_translate("MainWindow", self.name))
+        self.lblNomeCliente.setText(_translate("MainWindow", self.nome))
 
 
 if __name__ == "__main__":

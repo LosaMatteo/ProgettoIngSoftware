@@ -83,18 +83,18 @@ class dieta_chetogenica(object):
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(220, 10, 121, 16))
         self.label.setObjectName("label")
-        self.pushButton = QtWidgets.QPushButton(Form)
-        self.pushButton.setGeometry(QtCore.QRect(460, 570, 93, 21))
-        self.pushButton.setObjectName("pushButton")
+        self.btnIndietro = QtWidgets.QPushButton(Form)
+        self.btnIndietro.setGeometry(QtCore.QRect(460, 570, 93, 21))
+        self.btnIndietro.setObjectName("btnIndietro")
 
         self.retranslateUi(Form)
         self.toolBox.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(Form)
-        self.pushButton.clicked.connect(self.finestra.close)
+        self.btnIndietro.clicked.connect(self.finestra.close)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "Dieta chetogenica"))
         self.label_2.setText(_translate("Form", "<html><head/><body><p>La dieta chetogenica è una strategia nutrizionalebasata sulla riduzione dei carboidrati</p><p> alimentari, che &quot;obbliga&quot; l\'organismo a produrre autonomamente il glucosio </p><p>necessario alla sopravvivenza e ad aumentare il consumo energetico dei grassi </p><p>contenuti nel tessuto adiposo. </p></body></html>"))
         self.toolBox.setItemText(self.toolBox.indexOf(self.page), _translate("Form", "Cos\'è?"))
         self.label_3.setText(_translate("Form", "<html><head/><body><p>La dieta chetogenica è uno schema nutrizionale:<br/><br/>-A basso contenuto di calorie (dieta ipocalorica).</p><p><br/>-A basso contenuto percentuale e assoluto di carboidrati (dieta low carb).</p><p><br/>-Ad alto contenuto percentuale di lipidi.</p><p><br/>-Ad alto contenuto percentuale di proteine.</p></body></html>"))
@@ -112,7 +112,7 @@ class dieta_chetogenica(object):
         self.label_10.setText(_translate("Form", "<html><head/><body><p>-Aumento della filtrazione renale e della diuresi.</p><p>-Tendenza alla disidratazione.</p><p>-Aumento del carico di lavoro dei reni.</p><p>-Possibile effetto tossico sui reni da parte dei corpi chetonici.<br/>-Possibile ipoglicemia o ipotensione.</p><p>-Mal di testa, affaticamento, vertigici, nausea o irrtabilità.</p></body></html>"))
         self.toolBox.setItemText(self.toolBox.indexOf(self.page_8), _translate("Form", "Svantaggi"))
         self.label.setText(_translate("Form", "<html><head/><body><p><span style=\" font-weight:600;\">Dieta Chetogenica</span></p></body></html>"))
-        self.pushButton.setText(_translate("Form", "Indietro"))
+        self.btnIndietro.setText(_translate("Form", "Indietro"))
 
 
 if __name__ == "__main__":

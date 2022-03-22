@@ -3,24 +3,24 @@ from os import listdir
 from os.path import isfile, join
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QDate
-from Cliente.Allenamento.scheda_allenamento import scheda_allenamento
-from Cliente.Dieta.dieta_cliente import dieta_cliente
-from Cliente.Prenotazioni.gestionePrenotazioni import GestionePrenotazioniCorsi
-from Data.MessageBox import messageBox
-from Data.casella_di_messaggi.Casella_di_messaggio import Casella_di_messaggio
-from Data.casella_di_messaggi.leggi_messaggio import lettura_messaggio
-from Data.interface_password import change_password
-from Cliente.Allenamento.Allenamenti import allenamento
-from Cliente.Prenotazioni.Prenotazioni1 import prenotazioni
-from Model.Cliente import Client
-from Model.Messaggio import Messaggio
+from Python.Cliente.Allenamento.scheda_allenamento import scheda_allenamento
+from Python.Cliente.Dieta.dieta_cliente import dieta_cliente
+from Python.Cliente.Prenotazioni.gestionePrenotazioni import GestionePrenotazioniCorsi
+from Python.Data.MessageBox import messageBox
+from Python.Data.casella_di_messaggi.Casella_di_messaggio import Casella_di_messaggio
+from Python.Data.casella_di_messaggi.leggi_messaggio import lettura_messaggio
+from Python.Data.interface_password import change_password
+from Python.Cliente.Allenamento.Allenamenti import allenamento
+from Python.Cliente.Prenotazioni.Prenotazioni1 import prenotazioni
+from Python.Model.Cliente import Cliente
+from Python.Model.Messaggio import Messaggio
 
 
 class GUI_client(object):
     username = ""
     messanger = Messaggio()
-    listafilesutente = []
-    gestPre = GestionePrenotazioniCorsi()
+    lista_files_utente = []
+    objGestionePrenotazioneCorsi = GestionePrenotazioniCorsi()
     lista_messaggi = []
     messaggio = messageBox()
     lista_prenotazioni = []
@@ -28,38 +28,38 @@ class GUI_client(object):
                 "./Cliente/Prenotazioni/file_prenotazioni/zumba/": "Zumba",
                 "./Cliente/Prenotazioni/file_prenotazioni/functional/": "Functional"}
 
-    def aggiungi_prenotazione(self):
+    def aggiungiPrenotazione(self):
         self.lista_prenotazioni.clear()
         self.listWidget_4.clear()
         for path in self.percorsi.keys():
-            vett = self.gestPre.trova_cliente(path, self.username)
-            for elem in vett:
+            vettore = self.objGestionePrenotazioneCorsi.trovaCliente(path, self.username)
+            for elem in vettore:
                 self.lista_prenotazioni.append(path + "+" + elem)
                 elem = elem[:-4]
                 orario = elem[11:]
                 data = elem[:10]
                 self.listWidget_4.addItem("data: " + data + " orario: " + orario + " " + self.percorsi[path])
-            vett.clear()
+            vettore.clear()
 
-    def open_window(self):
+    def apriDietaCliente(self):
         self.dieta_cliente = QtWidgets.QMainWindow()
         self.ui = dieta_cliente()
         self.ui.setupUi(self.dieta_cliente,self.username)
         self.dieta_cliente.show()
 
-    def open_window_message(self):
+    def apriCasellaMessaggio(self):
         self.casella = QtWidgets.QMainWindow()
         self.ui = Casella_di_messaggio()
         self.ui.setupUi(self.casella, self.username)
         self.casella.show()
 
-    def open_window_leggi_messaggio(self):
+    def apriLetturaMessaggio(self):
         self.lettura_messaggio = QtWidgets.QMainWindow()
         self.ui = lettura_messaggio()
         self.ui.setupUi(self.lettura_messaggio, self.messanger, self.username)
         self.lettura_messaggio.show()
 
-    def visualizza_messaggi(self):
+    def visualizzaMessaggi(self):
         self.listWidget_5.clear()
         self.lista_messaggi = self.messanger.getObject_message(self.username)
         self.lista_messaggi.sort(key=lambda x: x.data, reverse=True)  # ordina la lista messaggi in ordine temporale
@@ -69,48 +69,48 @@ class GUI_client(object):
             elif elem.destinatario == self.username:
                 self.listWidget_5.addItem("messaggio da: " + elem.mittente + "  -  " + elem.data)
 
-    def return_message(self):
-        row = self.listWidget_5.currentRow()
+    def restituisciMessaggio(self):
+        riga = self.listWidget_5.currentRow()
         self.lista_messaggi = self.messanger.getObject_message(self.username)
         self.lista_messaggi.sort(key=lambda x: x.data, reverse=True)  # ordina la lista messaggi in ordine temporale
-        self.messanger = self.lista_messaggi[row]
-        self.open_window_leggi_messaggio()
+        self.messanger = self.lista_messaggi[riga]
+        self.apriLetturaMessaggio()
 
-    def elimina_messaggio(self):
+    def eliminaMessaggio(self):
 
         try:
-            obj = self.lista_messaggi[self.listWidget_5.currentRow()]
-            self.messanger.rimuovi_messaggio(obj)
+            objMessaggio = self.lista_messaggi[self.listWidget_5.currentRow()]
+            self.messanger.rimuovi_messaggio(objMessaggio)
             self.listWidget_5.takeItem(self.listWidget_5.currentRow())
         except(Exception):
             self.messaggio.show_popup_exception("ERRORE")
 
-    def open_window_allenamento(self):
+    def apriFinestraAllenamento(self):
         self.allenamento = QtWidgets.QMainWindow()
         self.ui = allenamento()
         self.ui.setupUi(self.allenamento, self.username)
         self.allenamento.show()
 
-    def open_window_prenotazioni(self):
+    def apriPrenotazioni(self):
         self.password = QtWidgets.QMainWindow()
         self.ui = prenotazioni()
         self.ui.setupUi(self.password, self.username)
         self.password.show()
 
-    def open_window_password(self):
+    def apriCambioPassword(self):
         self.password = QtWidgets.QMainWindow()
         self.ui = change_password()
         self.ui.setupUi(self.password, self.username)
         self.password.show()
 
-    def scrivisulista(self):
-        for elem in self.listafilesutente:
-            nomegrezzo = elem.split(".")
-            nomegrezzo.pop()
-            nomesenzapunto = ""
-            for elems in nomegrezzo:
-                nomesenzapunto += elems + " "
-            temp = nomesenzapunto.replace("_", " ")
+    def scriviSuLista(self):
+        for elem in self.lista_files_utente:
+            nome2 = elem.split(".")
+            nome2.pop()
+            nome1 = ""
+            for elems in nome2:
+                nome1 += elems + " "
+            temp = nome1.replace("_", " ")
             vett = temp.split(" ")
             vett.remove(vett[0])
             str = ""
@@ -118,16 +118,16 @@ class GUI_client(object):
                 str += elem + " "
             self.listWidget_3.addItem(str)
 
-    def open_file_dieta(self):
-        path = "./Cliente/Dieta/file_dieta"
-        listafiles = [f for f in listdir(path) if isfile(join(path, f))]
-        for elem in listafiles:
+    def apriFileDieta(self):
+        percorso = "./Cliente/Dieta/file_dieta"
+        lista_files = [f for f in listdir(percorso) if isfile(join(percorso, f))]
+        for elem in lista_files:
             if elem.startswith(self.username + "_dieta_personale_"):
-                self.listafilesutente.append(elem)
-        self.scrivisulista()
+                self.lista_files_utente.append(elem)
+        self.scriviSuLista()
 
-    def open(self):
-        file = self.listafilesutente[self.listWidget_3.currentRow()]
+    def apri(self):
+        file = self.lista_files_utente[self.listWidget_3.currentRow()]
         os.chdir("./Cliente/Dieta/file_dieta")
         os.system(file)
         os.chdir("..")
@@ -135,32 +135,32 @@ class GUI_client(object):
         os.chdir("..")
 
     def visualizza(self):
-        self.appari()
+        self.mostra()
         self.messaggio = messageBox()
         data_odierna = QDate.currentDate()
-        cliente = Client()
-        cliente = cliente.getObject(self.username)
-        self.txt_nome.setText(cliente.name)
-        self.txt_cognome.setText(cliente.surname)
+        objCliente = Cliente()
+        objCliente = objCliente.getObject(self.username)
+        self.txt_nome.setText(objCliente.name)
+        self.txt_cognome.setText(objCliente.surname)
         self.txt_username.setText(self.username)
-        self.txt_password.setText(cliente.password)
-        self.txt_codice_fiscale.setText(cliente.codice_fiscale)
-        self.txt_luogo_nascita.setText(cliente.luogo_nascita)
-        self.txt_data_nascita.setText(cliente.data_nascita.toString())
-        self.dtdScadenzaCertMedico.setDate(cliente.gestAll.data_iscrizione)
-        if cliente.gestAll.tipo_di_abbonamento.__contains__("mensile"):
+        self.txt_password.setText(objCliente.password)
+        self.txt_codice_fiscale.setText(objCliente.codice_fiscale)
+        self.txt_luogo_nascita.setText(objCliente.luogo_nascita)
+        self.txt_data_nascita.setText(objCliente.data_nascita.toString())
+        self.dtdScadenzaCertMedico.setDate(objCliente.gestAll.data_iscrizione)
+        if objCliente.gestAll.tipo_di_abbonamento.__contains__("mensile"):
             self.dtdScadenzaCertMedico_2.setDate(self.dtdScadenzaCertMedico.date().addMonths(1))
             if data_odierna > self.dtdScadenzaCertMedico_2.date():
                 self.messaggio.show_popup_ok("abbonamento scaduto,si prega di rinnovarlo")
-        elif cliente.gestAll.tipo_di_abbonamento.__contains__("annuale"):
+        elif objCliente.gestAll.tipo_di_abbonamento.__contains__("annuale"):
             self.dtdScadenzaCertMedico_2.setDate(self.dtdScadenzaCertMedico.date().addYears(1))
             if data_odierna > self.dtdScadenzaCertMedico_2.date():
                 self.messaggio.show_popup_ok("abbonamento scaduto,si prega di rinnovarlo")
-        self.dtdScadenzaCertMedico_3.setDate(cliente.gestAll.data_certificato_medico)
+        self.dtdScadenzaCertMedico_3.setDate(objCliente.gestAll.data_certificato_medico)
 
 
 
-    def open_window_scheda_allenamento(self):
+    def apriSchedaAllenamento(self):
         self.scheda_allenamento = QtWidgets.QMainWindow()
         self.ui = scheda_allenamento()
         self.ui.setupUi(self.scheda_allenamento,self.username)
@@ -190,7 +190,7 @@ class GUI_client(object):
         self.lbl_data_certificato_medico.hide()
         self.pushButton_7.hide()
 
-    def appari(self):
+    def mostra(self):
         self.listWidget_2.show()
         self.txt_nome.show()
         self.txt_cognome.show()
@@ -215,19 +215,19 @@ class GUI_client(object):
         self.lbl_data_certificato_medico.show()
         self.pushButton_7.show()
 
-    def hide_password(self):
+    def mostraPassword(self):
          self.txt_password.setEchoMode(QtWidgets.QLineEdit.Normal)
 
-    def hide_password_return(self):
+    def nascondiPassword(self):
         self.txt_password.setEchoMode(QtWidgets.QLineEdit.Password)
 
     def inserisciSuLista(self):
-        cliente = Client()
-        cliente = cliente.getObject(self.username)
+        objCLiente = Cliente()
+        objCLiente = objCLiente.getObject(self.username)
         path = "Staff/Allenamento_staff/file_scheda_allenamento"
-        listafiles = [f for f in listdir(path) if isfile(join(path, f))]
-        for elem in listafiles:
-            if cliente.name + " " + cliente.surname + ".txt" == elem:
+        lista_files = [f for f in listdir(path) if isfile(join(path, f))]
+        for elem in lista_files:
+            if objCLiente.name + " " + objCLiente.surname + ".txt" == elem:
                 self.listWidget.addItem(elem)
 
     def annullaPrenotazione(self):
@@ -235,9 +235,9 @@ class GUI_client(object):
             if self.listWidget_4.currentItem().isSelected():
                 da_annullare = self.lista_prenotazioni[self.listWidget_4.currentIndex().row()]
                 percorso = da_annullare.split("+")
-                self.gestPre.annullaPrenotazione(self.username, percorso[0], percorso[1])
+                self.objGestionePrenotazioneCorsi.annullaPrenotazione(self.username, percorso[0], percorso[1])
                 self.listWidget_4.clear()
-                self.aggiungi_prenotazione()
+                self.aggiungiPrenotazione()
         except(AttributeError):
             self.messaggio.show_popup_exception("Non hai selezionato nulla dalla lista")
         except(Exception):
@@ -507,29 +507,29 @@ class GUI_client(object):
         QtCore.QMetaObject.connectSlotsByName(Form)
 
         for path in self.percorsi.keys():
-            self.gestPre.elimina(path)
+            self.objGestionePrenotazioneCorsi.elimina(path)
         self.nascondi()
         self.messanger.recuperaSalvataggio("./Data/casella_di_messaggi/messaggi.txt")
-        self.visualizza_messaggi()
+        self.visualizzaMessaggi()
         self.label_2.setText(self.username)
         self.pushButton_4.clicked.connect(self.visualizza)
-        self.btnPassword.clicked.connect(self.open_window_password)
-        self.pushButton.clicked.connect(self.open_window_allenamento)
-        self.pushButton_2.clicked.connect(self.open_window)
+        self.btnPassword.clicked.connect(self.apriCambioPassword)
+        self.pushButton.clicked.connect(self.apriFinestraAllenamento)
+        self.pushButton_2.clicked.connect(self.apriDietaCliente)
         self.pushButton_3.clicked.connect(self.open_window_prenotazioni)
-        self.listWidget.clicked.connect(self.open_window_scheda_allenamento)
+        self.listWidget.clicked.connect(self.apriSchedaAllenamento)
         self.listWidget_5.doubleClicked.connect(self.return_message)
-        self.pushButton_5.clicked.connect(self.open_window_message)
-        self.aggiungi_prenotazione()
-        self.open_file_dieta()
-        self.listWidget_3.doubleClicked.connect(self.open)
-        self.pushButton_7.pressed.connect(self.hide_password)
-        self.pushButton_7.clicked.connect(self.hide_password_return)
-        self.pushButton_6.clicked.connect(self.elimina_messaggio)
+        self.pushButton_5.clicked.connect(self.apriCasellaMessaggio)
+        self.aggiungiPrenotazione()
+        self.apriFileDieta()
+        self.listWidget_3.doubleClicked.connect(self.apri)
+        self.pushButton_7.pressed.connect(self.mostraPassword)
+        self.pushButton_7.clicked.connect(self.nascondiPassword)
+        self.pushButton_6.clicked.connect(self.eliminaMessaggio)
         self.inserisciSuLista()
         self.pushButton_8.clicked.connect(self.annullaPrenotazione)
-        self.btn_aggiorna.clicked.connect(self.aggiungi_prenotazione)
-        self.btnAggiornaMex.clicked.connect(self.visualizza_messaggi)
+        self.btn_aggiorna.clicked.connect(self.aggiungiPrenotazione)
+        self.btnAggiornaMex.clicked.connect(self.visualizzaMessaggi)
 
 
     def retranslateUi(self, Form):
