@@ -28,23 +28,23 @@ class Orario(object):
         self.gobj.scriviLista(path, self.lista_turni)
 
     def controlloGiorno(self, data):
-        listaPrenotati = []
+        lista_prenotati = []
         for elem in self.lista_turni:
             if data == elem.data:
-                listaPrenotati.append(elem)
-        return listaPrenotati
+                lista_prenotati.append(elem)
+        return lista_prenotati
 
     def controlloLavoro(self, data, staff):
-        listaLavoro = []
+        lista_lavori = []
         for elem in self.lista_turni:
             if data == elem.data and staff == self.getIndirizzo(elem.staff):
-                listaLavoro.append(elem)
-        return listaLavoro
+                lista_lavori.append(elem)
+        return lista_lavori
 
     def getIndirizzo(self, username):
         indirizzo = ""
-        tmp = username.split(" ")
-        for elem in tmp:
+        str = username.split(" ")
+        for elem in str:
             indirizzo += elem
         return indirizzo
 

@@ -5,11 +5,11 @@ class Personale(object):
     gobj = gestObj()
     lista_staff = []
 
-    def __init__(self, name="", surname="", cf="", ore="", mansione="", password="1234"):
-        if name != "" or surname != "":
-            self.name = name
-            self.surname = surname
-            self.cf = cf
+    def __init__(self, nome="", cognome="", codice_fiscale="", ore="", mansione="", password="1234"):
+        if nome != "" or cognome != "":
+            self.name = nome
+            self.surname = cognome
+            self.cf = codice_fiscale
             self.ore = ore
             self.mansione = mansione
             self.password = password
@@ -31,10 +31,9 @@ class Personale(object):
     def getAttributi(self, id):
         return self.gobj.getAttributi(id, self.lista_staff)
 
-    def rimuovi(self, strdaeliminare):
-        self.gobj.rimuovi(strdaeliminare, self.lista_staff)
+    def rimuovi(self, stringa_da_eliminare):
+        self.gobj.rimuovi(stringa_da_eliminare)
         self.scriviLista("./Admin/gestione_personale/CredenzialiStaff.txt")
-
 
     def reset(self, name):
         self.gobj.resetpassword(name, self.lista_staff)
@@ -42,7 +41,9 @@ class Personale(object):
 
     def getClCred(self):
         return self.gobj.getUserPass(self.lista_staff)
+
     def getObject(self, id):
         return self.gobj.getObject(id, self.lista_staff)
+
     def get_lista(self):
-            return self.gobj.get_lista(self.lista_staff)
+        return self.gobj.get_lista(self.lista_staff)

@@ -9,9 +9,9 @@ from Model.Cliente import Client
 from Data.MessageBox import messageBox
 import shutil
 import os
-class dieta_staff(object):
 
-    msg = messageBox()
+class dieta_staff(object):
+    msg_box = messageBox()
     cliente = Client()
     peso = 0
 
@@ -33,22 +33,21 @@ class dieta_staff(object):
             self.eliminaFileDietaVecchi("./Cliente/Dieta/file_dieta/")
             shutil.copy(path,"./Cliente/Dieta/file_dieta/"+ nome_cliente +"_dieta_personale_"+
                         data_odierna + "." +estensione[indice - 1])
-            self.msg.show_popup_ok("il file è stato inviato correttamente!")
+            self.msg_box.show_popup_ok("il file è stato inviato correttamente!")
             self.finestra.close()
         else:
-            self.msg.show_popup_exception("Errore")
+            self.msg_box.show_popup_exception("Errore")
 
     def eliminaFileDietaVecchi(self, path):
-        listafiles = [f for f in listdir(path) if isfile(join(path, f))]
-        for elem in listafiles:
+        lista_files = [f for f in listdir(path) if isfile(join(path, f))]
+        for elem in lista_files:
             if elem.startswith(self.username.replace(" ", "") + "_dieta_personale_"):
                 os.remove(path+elem)
 
-
     def popola_dati_fisiologici(self):
-        cliente_name = self.username.replace(" ", "")
-        if os.path.exists("./Cliente/Dieta/file_dieta/"+ cliente_name+".txt"):
-            with open ("./Cliente/Dieta/file_dieta/"+ cliente_name+".txt","r") as openfile:
+        nome_cliente = self.username.replace(" ", "")
+        if os.path.exists("./Cliente/Dieta/file_dieta/" + nome_cliente + ".txt"):
+            with open ("./Cliente/Dieta/file_dieta/" + nome_cliente + ".txt", "r") as openfile:
                 lettura = openfile.readline()
                 lettura = lettura.split("-")
                 riga = openfile.readline()
@@ -71,14 +70,14 @@ class dieta_staff(object):
         self.lineEdit_9.hide()
         self.label_17.hide()
         self.lineEdit_7.hide()
-        self.pushButton_4.hide()
+        self.btnCalcolaNutrienti.hide()
         self.label_18.hide()
         self.label_19.hide()
         self.listWidget_3.hide()
 
     def appari(self):
-        cliente_name = self.username.replace(" ", "")
-        if os.path.exists("./Cliente/Dieta/file_dieta/"+ cliente_name+".txt"):
+        nome_cliente = self.username.replace(" ", "")
+        if os.path.exists("./Cliente/Dieta/file_dieta/" + nome_cliente + ".txt"):
             self.plainTextEdit.hide()
             self.label_15.show()
             self.label_22.show()
@@ -90,13 +89,13 @@ class dieta_staff(object):
             self.lineEdit_9.show()
             self.label_17.show()
             self.lineEdit_7.show()
-            self.pushButton_4.show()
+            self.btnCalcolaNutrienti.show()
             self.label_18.show()
             self.label_19.show()
             self.listWidget_3.show()
             self.popola_mostra_suggerimenti()
         else:
-            self.msg.show_popup_ok('il cliente non ha ancora indicato i dati fisiologici')
+            self.msg_box.show_popup_ok('il cliente non ha ancora indicato i dati fisiologici')
 
     def popola_mostra_suggerimenti(self):
         if self.peso < float(self.lineEdit_2.text()):
@@ -108,10 +107,10 @@ class dieta_staff(object):
 
     def calcola(self):
         try:
-            carbo = float(self.lineEdit_8.text())
+            carboidrati = float(self.lineEdit_8.text())
             grassi = float(self.lineEdit_9.text())
             proteine = float(self.lineEdit_7.text())
-            fabbisogno = str(carbo * 4 + grassi * 9 + proteine* 4)
+            fabbisogno = str(carboidrati * 4 + grassi * 9 + proteine * 4)
             self.label_19.setText(fabbisogno + " Kcal ")
         except(Exception):
             self.lineEdit_8.clear()
@@ -119,7 +118,7 @@ class dieta_staff(object):
             self.lineEdit_9.clear()
 
 
-    def setupUi(self, MainWindow,username):
+    def setupUi(self, MainWindow, username):
         self.username = username
         self.finestra = MainWindow
         cliente_nome = self.username.replace(" ", "")
@@ -131,14 +130,14 @@ class dieta_staff(object):
         MainWindow.setFont(font)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(10, 10, 501, 31))
+        self.lblNome = QtWidgets.QLabel(self.centralwidget)
+        self.lblNome.setGeometry(QtCore.QRect(10, 10, 501, 31))
         font = QtGui.QFont()
         font.setPointSize(11)
         font.setBold(True)
         font.setWeight(75)
-        self.label.setFont(font)
-        self.label.setObjectName("label")
+        self.lblNome.setFont(font)
+        self.lblNome.setObjectName("label")
         self.listWidget = QtWidgets.QListWidget(self.centralwidget)
         self.listWidget.setGeometry(QtCore.QRect(135, 60, 291, 101))
         self.listWidget.setObjectName("listWidget")
@@ -185,9 +184,9 @@ class dieta_staff(object):
         font.setWeight(75)
         self.label_5.setFont(font)
         self.label_5.setObjectName("label_5")
-        self.pushButton_3 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_3.setGeometry(QtCore.QRect(160, 460, 261, 31))
-        self.pushButton_3.setObjectName("pushButton_3")
+        self.btnAllegaFile = QtWidgets.QPushButton(self.centralwidget)
+        self.btnAllegaFile.setGeometry(QtCore.QRect(160, 460, 261, 31))
+        self.btnAllegaFile.setObjectName("pushButton_3")
         self.listWidget_3 = QtWidgets.QListWidget(self.centralwidget)
         self.listWidget_3.setGeometry(QtCore.QRect(40, 200, 481, 241))
         self.listWidget_3.setObjectName("listWidget_3")
@@ -216,14 +215,14 @@ class dieta_staff(object):
         font.setWeight(75)
         self.label_17.setFont(font)
         self.label_17.setObjectName("label_17")
-        self.pushButton_4 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_4.setGeometry(QtCore.QRect(240, 370, 75, 21))
+        self.btnCalcolaNutrienti = QtWidgets.QPushButton(self.centralwidget)
+        self.btnCalcolaNutrienti.setGeometry(QtCore.QRect(240, 370, 75, 21))
         font = QtGui.QFont()
         font.setPointSize(8)
         font.setBold(True)
         font.setWeight(75)
-        self.pushButton_4.setFont(font)
-        self.pushButton_4.setObjectName("pushButton_4")
+        self.btnCalcolaNutrienti.setFont(font)
+        self.btnCalcolaNutrienti.setObjectName("pushButton_4")
         self.lineEdit_7 = QtWidgets.QLineEdit(self.centralwidget)
         self.lineEdit_7.setGeometry(QtCore.QRect(130, 370, 91, 20))
         self.lineEdit_7.setObjectName("lineEdit_7")
@@ -290,22 +289,22 @@ class dieta_staff(object):
         font.setWeight(75)
         self.label_24.setFont(font)
         self.label_24.setObjectName("label_24")
-        self.radioButton = QtWidgets.QRadioButton(self.centralwidget)
-        self.radioButton.setGeometry(QtCore.QRect(40, 180, 181, 20))
+        self.rbtnSuggerimenti = QtWidgets.QRadioButton(self.centralwidget)
+        self.rbtnSuggerimenti.setGeometry(QtCore.QRect(40, 180, 181, 20))
         font = QtGui.QFont()
         font.setPointSize(8)
         font.setBold(True)
         font.setWeight(75)
-        self.radioButton.setFont(font)
-        self.radioButton.setObjectName("radioButton")
-        self.radioButton_2 = QtWidgets.QRadioButton(self.centralwidget)
-        self.radioButton_2.setGeometry(QtCore.QRect(310, 180, 191, 20))
+        self.rbtnSuggerimenti.setFont(font)
+        self.rbtnSuggerimenti.setObjectName("radioButton")
+        self.rbtnNoteCliente = QtWidgets.QRadioButton(self.centralwidget)
+        self.rbtnNoteCliente.setGeometry(QtCore.QRect(310, 180, 191, 20))
         font = QtGui.QFont()
         font.setPointSize(8)
         font.setBold(True)
         font.setWeight(75)
-        self.radioButton_2.setFont(font)
-        self.radioButton_2.setObjectName("radioButton_2")
+        self.rbtnNoteCliente.setFont(font)
+        self.rbtnNoteCliente.setObjectName("radioButton_2")
         self.plainTextEdit = QtWidgets.QPlainTextEdit(self.centralwidget)
         self.plainTextEdit.setGeometry(QtCore.QRect(40, 200, 481, 241))
         self.plainTextEdit.setObjectName("plainTextEdit")
@@ -321,34 +320,34 @@ class dieta_staff(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-        self.label.setText(self.username)
+        self.lblNome.setText(self.username)
         self.nascondi()
-        self.radioButton.clicked.connect(self.appari)
-        self.pushButton_3.clicked.connect(self.apri_file)
+        self.rbtnSuggerimenti.clicked.connect(self.appari)
+        self.btnAllegaFile.clicked.connect(self.apri_file)
         self.popola_dati_fisiologici()
-        self.radioButton_2.clicked.connect(self.plainTextEdit.show)
-        self.pushButton_4.clicked.connect(self.calcola)
+        self.rbtnNoteCliente.clicked.connect(self.plainTextEdit.show)
+        self.btnCalcolaNutrienti.clicked.connect(self.calcola)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">Faccenda Andrea</p><p align=\"center\"><br/></p></body></html>"))
+        self.lblNome.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">Faccenda Andrea</p><p align=\"center\"><br/></p></body></html>"))
         self.label_2.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">Dati fisiologici:</p><p align=\"center\"><br/></p></body></html>"))
         self.label_3.setText(_translate("MainWindow", "<html><head/><body><p>BMI:</p></body></html>"))
         self.label_4.setText(_translate("MainWindow", "<html><head/><body><p>Peso forma:</p><p><br/></p></body></html>"))
         self.label_5.setText(_translate("MainWindow", "<html><head/><body><p>Fabbisogno:</p><p><br/></p></body></html>"))
-        self.pushButton_3.setText(_translate("MainWindow", "Allega file  dieta"))
+        self.btnAllegaFile.setText(_translate("MainWindow", "Allega file  dieta"))
         self.label_15.setText(_translate("MainWindow", "<html><head/><body><p>Dopo aver analizzato i dati fisiologici-metabolici</p><p> è consigliata una dieta:</p></body></html>"))
         self.label_17.setText(_translate("MainWindow", "<html><head/><body><p>Proteine:<br/></p></body></html>"))
-        self.pushButton_4.setText(_translate("MainWindow", "CALCOLA"))
+        self.btnCalcolaNutrienti.setText(_translate("MainWindow", "CALCOLA"))
         self.label_18.setText(_translate("MainWindow", "<html><head/><body><p>Kcal totali dopo aver inserito le grammature:</p></body></html>"))
         self.label_20.setText(_translate("MainWindow", "<html><head/><body><p>Carboidrati:</p></body></html>"))
         self.label_21.setText(_translate("MainWindow", "<html><head/><body><p>Grassi:</p></body></html>"))
         self.label_22.setText(_translate("MainWindow", "<html><head/><body><p><br/></p></body></html>"))
         self.label_23.setText(_translate("MainWindow", "<html><head/><body><p>Con un fabbisogno calorico giornaliero</p><p></p></body></html>"))
         self.label_24.setText(_translate("MainWindow", "<html><head/><body><p><br/></p></body></html>"))
-        self.radioButton.setText(_translate("MainWindow", "Mostra suggerimenti"))
-        self.radioButton_2.setText(_translate("MainWindow", "Mostra note dell\'utente"))
+        self.rbtnSuggerimenti.setText(_translate("MainWindow", "Mostra suggerimenti"))
+        self.rbtnNoteCliente.setText(_translate("MainWindow", "Mostra note del cliente"))
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
