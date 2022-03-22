@@ -49,18 +49,18 @@ class dieta_ipocalorica(object):
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(230, 10, 121, 16))
         self.label.setObjectName("label")
-        self.pushButton = QtWidgets.QPushButton(Form)
-        self.pushButton.setGeometry(QtCore.QRect(350, 550, 113, 32))
-        self.pushButton.setObjectName("pushButton")
+        self.btnIndietro = QtWidgets.QPushButton(Form)
+        self.btnIndietro.setGeometry(QtCore.QRect(350, 550, 113, 32))
+        self.btnIndietro.setObjectName("btnIndietro")
 
         self.retranslateUi(Form)
         self.toolBox.setCurrentIndex(3)
         QtCore.QMetaObject.connectSlotsByName(Form)
-        self.pushButton.clicked.connect(self.finestra.close)
+        self.btnIndietro.clicked.connect(self.finestra.close)
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Form"))
+        Form.setWindowTitle(_translate("Form", "Dieta ipocalorica"))
         self.label_2.setText(_translate("Form", "<html><head/><body><p>La dieta ipocalorica è un regime alimentare che prevede un apporto <br/>calorico/energetico quotidiano inferiore a quello richiesto dall\'organismo<br/>nell\'arco della giornata.</p><p>All\'occhio di un professionista, tale definizione potrebbe sembrare riduttiva<br/>o solo parzialmente condivisibile; in effetti, le caratteristiche e i requisiti di<br/>una buona dieta ipocalorica sono molto più numerosi, ma, in senso stretto, <br/>l\'etimologia del termine è a dir poco essenziale, ovvero:</p><p>-<span style=\" font-weight:600;\">Dieta:</span> regole di alimentazione o regime alimentare controllato, frutto di <br/>un\'indicazione terapeutica; dal greco &quot;dìaita&quot; che significa &quot;stile di vita&quot;.<br/>-<span style=\" font-weight:600;\">ipo-</span>: particella diminutiva.<br/>-<span style=\" font-weight:600;\">calorica:</span> che ha o apporta calorie/energia.</p></body></html>"))
         self.toolBox.setItemText(self.toolBox.indexOf(self.page), _translate("Form", "Cos\'è?"))
         self.label_3.setText(_translate("Form", "<html><head/><body><p><span style=\" font-weight:600;\">DEVE </span>essere prescritta/valutata/strutturata e seguita da un professionista </p><p>qualificato (dietologo, biologo specializzato in nutrizione o dietista).</p><p><br/></p><p><span style=\" font-weight:600;\">DEVE</span> essere utilizzata <span style=\" font-weight:600;\">SOLO</span> in caso di necessità; come se fosse un </p><p>&quot;ciclo farmacologico&quot;, la dieta ipocalorica NON giova alle persone sane</p><p> in normopeso e/o senza alterazioni del metabolismo che la rendano giustificabile.</p></body></html>"))
@@ -70,7 +70,7 @@ class dieta_ipocalorica(object):
         self.label_5.setText(_translate("Form", "<html><head/><body><p>Il rispetto della dieta ipocalorica è sempre il risultato di una formula</p><p> astratta <span style=\" font-weight:600;\">NON</span> matematicamente valutabile, le cui variabili sono:<br/><br/>-Rapporto paziente-operatore (fiducia, onestà, empatia, capacità di </p><p>dialogo, capacità di ascolto e comprensione, comunicatività, intuito,</p><p> astuzia, capacità di indurre motivazione ecc.)</p><p><br/>-Accuratezza e precisione del metodo.</p><p><br/>-Personalizzazione.</p></body></html>"))
         self.toolBox.setItemText(self.toolBox.indexOf(self.page_4), _translate("Form", "Come Strutturarla"))
         self.label.setText(_translate("Form", "<html><head/><body><p><span style=\" font-weight:600;\">Dieta Ipocalorica</span></p></body></html>"))
-        self.pushButton.setText(_translate("Form", "Indietro"))
+        self.btnIndietro.setText(_translate("Form", "Indietro"))
 
 
 if __name__ == "__main__":

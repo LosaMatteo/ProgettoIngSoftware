@@ -10,13 +10,13 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-from Data.MessageBox import messageBox
-from Model.Cliente import Client
+from Python.Data.MessageBox import messageBox
+
 
 class allenamento(object):
     username = ""
     msg = messageBox()
-    def popola_array(self):
+    def popolaArray(self):
         esercizi = []
         if self.checkBox.isChecked() is True:
             esercizi.append(self.checkBox.text())
@@ -74,10 +74,10 @@ class allenamento(object):
             esercizi.append(self.checkBox_27.text())
         return esercizi
 
-    def save_exercise(self):
+    def salvaEsercizio(self):
 
         file = open("./Cliente/Allenamento/file_allenamento/" + self.username + ".txt", "w")
-        esercizi = self.popola_array()
+        esercizi = self.popolaArray()
         for elem in esercizi:
             file.write(elem)
             file.write("\n")
@@ -441,12 +441,12 @@ class allenamento(object):
         self.retranslateUi(MainWindow)
         self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-        self.btn_salva.clicked.connect(self.save_exercise)
+        self.btn_salva.clicked.connect(self.salvaEsercizio)
 
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Allenamento"))
         self.checkBox.setText(_translate("MainWindow", "Alzate Verticali"))
         self.checkBox_2.setText(_translate("MainWindow", "Alzate Laterali"))
         self.checkBox_3.setText(_translate("MainWindow", "Cavi"))

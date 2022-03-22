@@ -1,9 +1,9 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from Model.Attrezzo import Attrezzo
+from Python.Model.Attrezzo import Attrezzo
 
 class agg_attrezzo(object):
 
-    def save(self):
+    def salva(self):
         obj = Attrezzo(self.txtDescr.text(), self.dtAcquisto.text(), self.txtQuantita.text(),
                        self.txtPrezzo.text(), self.dtMan.text())
         obj.addToList(obj)
@@ -82,14 +82,13 @@ class agg_attrezzo(object):
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
-
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-        self.btnSalva.clicked.connect(self.save)
+        self.btnSalva.clicked.connect(self.salva)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Aggiunta attrezzo"))
         self.lblTitle.setText(_translate("MainWindow", "Aggiungi un nuovo attrezzo o macchinario"))
         self.lblDescr.setText(_translate("MainWindow", "Aggiungi una breve descrizione"))
         self.lblAcquisto.setText(_translate("MainWindow", "Seleziona la data di acquisto"))

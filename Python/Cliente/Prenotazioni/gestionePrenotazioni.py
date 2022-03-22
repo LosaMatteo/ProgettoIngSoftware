@@ -4,7 +4,7 @@ from os.path import isfile, join
 
 from PyQt5.QtCore import QDate
 
-from Data.MessageBox import messageBox
+from Python.Data.MessageBox import messageBox
 
 
 class GestionePrenotazioniCorsi(object):
@@ -45,7 +45,7 @@ class GestionePrenotazioniCorsi(object):
             self.scriviPrenotazione(path, username)
             self.msg.show_popup_ok("la tua prenotazione è andata a buon fine.")
 
-    def cmbActivated(self, path):
+    def cmbAttive(self, path):
         if os.path.exists(path):
             with open(path, "r") as openfile:
                 lettura = openfile.readlines()
@@ -60,23 +60,23 @@ class GestionePrenotazioniCorsi(object):
                 os.remove(path + elem)
 
     def annullaPrenotazione(self, username, path, data):
-        newlist = []
-        newlist.clear()
-        oldlist = []
-        oldlist.clear()
+        nuova_lista= []
+        nuova_lista.clear()
+        vecchia_lista = []
+        vecchia_lista.clear()
         with open(path + data, "r") as openfile:
-            oldlist = openfile.readlines()
-            for elem in oldlist:
+            vecchia_lista = openfile.readlines()
+            for elem in vecchia_lista:
                 if elem.replace("\n", "") != username:
-                    newlist.append(elem)
-        if len(newlist) > 0:
+                    nuova_lista.append(elem)
+        if len(nuova_lista) > 0:
             with open(path + data, "w") as openfile:
-                openfile.writelines(newlist)
+                openfile.writelines(nuova_lista)
         else:
             os.remove(path + data)
 
 
-    def trova_cliente(self, path, utente):
+    def trovaCliente(self, path, utente):
         listafiles_prenotazioni_utente = []
         listafiles = [f for f in listdir(path) if isfile(join(path, f))]
         for file in listafiles:

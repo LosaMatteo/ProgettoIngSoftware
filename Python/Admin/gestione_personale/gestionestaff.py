@@ -1,38 +1,38 @@
-from Admin.gestione_personale.gestioneorari import GestioneOrari
+from Python.Admin.gestione_personale.gestioneorari import GestioneOrari
 from PyQt5 import QtCore, QtGui, QtWidgets
-from Data.MessageBox import messageBox
-from Model.Personale import Personale
+from Python.Data.MessageBox import messageBox
+from Python.Model.Personale import Personale
 
 
 class gestione_staff(object):
     def __init__(self, name):
         self.name = name
 
-    objPer = Personale()
+    objPersonale = Personale()
     messaggio = messageBox()
 
     def visualizza(self):
-        oggPer = self.objPer.getAttributi(self.name)
-        self.txtNome.setText(oggPer.name)
-        self.txtCognome.setText(oggPer.surname)
-        self.txtCF.setText(oggPer.cf)
-        self.txtMansione.setText(oggPer.mansione)
+        objPersonale = self.objPersonale.getAttributi(self.name)
+        self.txtNome.setText(objPersonale.name)
+        self.txtCognome.setText(objPersonale.surname)
+        self.txtCodiceFiscale.setText(objPersonale.cf)
+        self.txtMansione.setText(objPersonale.mansione)
 
-    def salvamodifiche(self):
-        if self.txtNome.text() != "" and self.txtCognome.text() != "" and self.txtCF.text() != "" \
+    def salvaModifiche(self):
+        if self.txtNome.text() != "" and self.txtCognome.text() != "" and self.txtCodiceFiscale.text() != "" \
                 and self.txtMansione.text() != "":
             try:
-                oggPer = self.objPer.getAttributi(self.name)
+                oggPer = self.objPersonale.getAttributi(self.name)
                 if oggPer.name == self.txtNome.text() and oggPer.surname == self.txtCognome.text() and \
-                        oggPer.cf == self.txtCF.text() and oggPer.mansione == self.txtMansione.text():
+                        oggPer.cf == self.txtCodiceFiscale.text() and oggPer.mansione == self.txtMansione.text():
                     self.messaggio.show_popup_listWidget("Nessun campo modificato.")
                 else:
-                    self.objPer.rimuovi(self.name)
+                    self.objPersonale.rimuovi(self.name)
                     oggPer.name = self.txtNome.text()
                     oggPer.surname = self.txtCognome.text()
-                    oggPer.cf = self.txtCF.text()
+                    oggPer.cf = self.txtCodiceFiscale.text()
                     oggPer.mansione = self.txtMansione.text()
-                    self.objPer.addToList(oggPer)
+                    self.objPersonale.addToList(oggPer)
                     self.messaggio.show_popup_ok("Modifiche salvate con successo!")
             except(Exception):
                 self.messaggio.show_popup_listWidget("non hai selezionato nulla nella lista!")
@@ -43,13 +43,13 @@ class gestione_staff(object):
     def pulisciCaselle(self):
         self.txtNome.clear()
         self.txtCognome.clear()
-        self.txtCF.clear()
+        self.txtCodiceFiscale.clear()
         self.txtMansione.clear()
 
     def rimuovi(self):
         try:
             if self.messaggio.show_popup_question("Sei sicuro di voler eliminare il membro dello staff?"):
-                self.objPer.rimuovi(self.name)
+                self.objPersonale.rimuovi(self.name)
                 self.pulisciCaselle()
             else:
                 return
@@ -58,9 +58,9 @@ class gestione_staff(object):
 
     def reset(self):
         name = self.name
-        self.objPer.reset(name)
+        self.objPersonale.reset(name)
 
-    def aprigestorario(self):
+    def apriGestioneOrario(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = GestioneOrari()
         self.ui.setupUi(self.window, self.name)
@@ -85,9 +85,9 @@ class gestione_staff(object):
         self.txtMansione = QtWidgets.QLineEdit(self.centralwidget)
         self.txtMansione.setGeometry(QtCore.QRect(340, 130, 113, 21))
         self.txtMansione.setObjectName("txtMansione")
-        self.txtCF = QtWidgets.QLineEdit(self.centralwidget)
-        self.txtCF.setGeometry(QtCore.QRect(340, 100, 113, 21))
-        self.txtCF.setObjectName("txtCF")
+        self.txtCodiceFiscale = QtWidgets.QLineEdit(self.centralwidget)
+        self.txtCodiceFiscale.setGeometry(QtCore.QRect(340, 100, 113, 21))
+        self.txtCodiceFiscale.setObjectName("txtCodiceFiscale")
         self.btnReset = QtWidgets.QPushButton(self.centralwidget)
         self.btnReset.setGeometry(QtCore.QRect(100, 190, 101, 24))
         self.btnReset.setObjectName("btnReset")
@@ -100,15 +100,15 @@ class gestione_staff(object):
         self.lblMansione = QtWidgets.QLabel(self.centralwidget)
         self.lblMansione.setGeometry(QtCore.QRect(250, 130, 51, 21))
         self.lblMansione.setObjectName("lblMansione")
-        self.lblCF = QtWidgets.QLabel(self.centralwidget)
-        self.lblCF.setGeometry(QtCore.QRect(250, 100, 81, 21))
-        self.lblCF.setObjectName("lblCF")
+        self.lblCodiceFiscale = QtWidgets.QLabel(self.centralwidget)
+        self.lblCodiceFiscale.setGeometry(QtCore.QRect(250, 100, 81, 21))
+        self.lblCodiceFiscale.setObjectName("lblCodiceFiscale")
         self.btnSalva = QtWidgets.QPushButton(self.centralwidget)
         self.btnSalva.setGeometry(QtCore.QRect(20, 190, 61, 24))
         self.btnSalva.setObjectName("btnSalva")
-        self.btn_Indietro = QtWidgets.QPushButton(self.centralwidget)
-        self.btn_Indietro.setGeometry(QtCore.QRect(390, 190, 71, 24))
-        self.btn_Indietro.setObjectName("btn_Indietro")
+        self.btnIndietro = QtWidgets.QPushButton(self.centralwidget)
+        self.btnIndietro.setGeometry(QtCore.QRect(390, 190, 71, 24))
+        self.btnIndietro.setObjectName("btnIndietro")
         self.lblNomeStaff = QtWidgets.QLabel(self.centralwidget)
         self.lblNomeStaff.setGeometry(QtCore.QRect(60, 80, 161, 41))
         font = QtGui.QFont()
@@ -129,16 +129,14 @@ class gestione_staff(object):
         MainWindow.setStatusBar(self.statusbar)
         self.txtNome.setReadOnly(True)
         self.txtCognome.setReadOnly(True)
-        self.txtCF.setReadOnly(True)
+        self.txtCodiceFiscale.setReadOnly(True)
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
-        self.btnSalva.clicked.connect(self.salvamodifiche)
+        self.btnSalva.clicked.connect(self.salvaModifiche)
         self.btnRimuovi.clicked.connect(self.rimuovi)
         self.visualizza()
-        self.btnOrario.clicked.connect(self.aprigestorario)
-        self.btn_Indietro.clicked.connect(self.finestra.close)
-
+        self.btnOrario.clicked.connect(self.apriGestioneOrario)
+        self.btnIndietro.clicked.connect(self.finestra.close)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -148,9 +146,9 @@ class gestione_staff(object):
         self.lblNome.setText(_translate("MainWindow", "Nome"))
         self.lblCognome.setText(_translate("MainWindow", "Cognome"))
         self.lblMansione.setText(_translate("MainWindow", "Mansione"))
-        self.lblCF.setText(_translate("MainWindow", "Codice fiscale"))
+        self.lblCodiceFiscale.setText(_translate("MainWindow", "Codice fiscale"))
         self.btnSalva.setText(_translate("MainWindow", "Salva"))
-        self.btn_Indietro.setText(_translate("MainWindow", "Indietro"))
+        self.btnIndietro.setText(_translate("MainWindow", "Indietro"))
         self.lblNomeStaff.setText(_translate("MainWindow", self.name))
         self.btnOrario.setText(_translate("MainWindow", "Orario"))
         self.btnRimuovi.setText(_translate("MainWindow", "Rimuovi"))
@@ -158,7 +156,6 @@ class gestione_staff(object):
 
 if __name__ == "__main__":
     import sys
-
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = gestione_staff("")

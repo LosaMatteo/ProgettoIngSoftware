@@ -1,7 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from Data.MessageBox import messageBox
 from Model.Admin import admin
-from Model.Cliente import Client
+from Model.Cliente import Cliente
 from Admin.GUI_Admin import GUI_Admin
 from Cliente.GUI_client import GUI_client
 from Model.Personale import Personale
@@ -10,7 +10,7 @@ from Staff.GUI_staff import GUI_staff
 
 class Ui_ATHENEO(object):
 
-    objClient = Client()
+    objClient = Cliente()
     objPersonale = Personale()
     admin1 = admin("admin","1")
     lista_accessi = []

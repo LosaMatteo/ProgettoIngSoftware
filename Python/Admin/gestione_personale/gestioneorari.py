@@ -1,17 +1,17 @@
-from Data.casella_di_messaggi.Casella_di_messaggio import Casella_di_messaggio
+from Python.Data.casella_di_messaggi.Casella_di_messaggio import Casella_di_messaggio
 from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtCore import QDate, QRect, Qt, QMetaObject, QCoreApplication
 from PyQt5.QtWidgets import QWidget, QCalendarWidget, QComboBox, QLabel, QDoubleSpinBox, QStatusBar, QPushButton, \
     QPlainTextEdit, QMessageBox
-from Model.Orario import Orario
-from Data.MessageBox import messageBox
+from Python.Model.Orario import Orario
+from Python.Data.MessageBox import messageBox
 
 class GestioneOrari(object):
     msg = messageBox()
     username = ""
-    gestorario = Orario()
+    objOrario = Orario()
     notifica = Casella_di_messaggio()
-    validitagiorno = False
+    validita_giorno = False
 
     def fasciaOraria(self):
         tipo = self.cmbTipo.currentText()
@@ -48,25 +48,25 @@ class GestioneOrari(object):
             self.cmbFine.addItem("18:30")
 
     def controllaGiorno(self):
-        self.ptxPreview.clear()
+        self.ptxCasella.clear()
         tipo = self.cmbTipo.currentText()
         if tipo == "Sala Pesi":
             if self.calendarWidget.selectedDate().toString()[:3] == "dom":
                 self.messaggioErrore("Selezionare un giorno corretto.")
-                self.validitagiorno = False
+                self.validita_giorno = False
         if tipo == "Zumba":
             if (self.calendarWidget.selectedDate().toString()[:3] != "gio" and
                     self.calendarWidget.selectedDate().toString()[:3] != "ven"):
                 self.messaggioErrore("Selezionare un giorno corretto.")
-                self.validitagiorno = False
+                self.validita_giorno = False
         elif tipo == "Functional":
             if (self.calendarWidget.selectedDate().toString()[:3] != "mar" and
                     self.calendarWidget.selectedDate().toString()[:3] != "mer" and
                     self.calendarWidget.selectedDate().toString()[:3] != "ven"):
                 self.messaggioErrore("Selezionare un giorno corretto.")
-                self.validitagiorno = False
+                self.validita_giorno = False
         self.controllaTurno()
-        self.validitagiorno = True
+        self.validita_giorno = True
 
     def controllaOrario(self, hinizio, hfine):
         if hinizio < hfine:
@@ -75,11 +75,11 @@ class GestioneOrari(object):
 
     def salva(self):
         if self.controllaOrario(self.cmbInizio.currentText(), self.cmbFine.currentText()):
-            if self.calendarWidget.selectedDate().toString() != "" and self.validitagiorno:
+            if self.calendarWidget.selectedDate().toString() != "" and self.validita_giorno:
                 ora = Orario(self.calendarWidget.selectedDate().toString(), self.cmbInizio.currentText(),
                              self.cmbFine.currentText(),
                              self.username, self.spbPaga.text(), self.cmbTipo.currentText())
-                self.gestorario.addToList(ora)
+                self.objOrario.addToList(ora)
                 self.notifica.notificaTurno("admin", self.username.replace(" ", ""), "In data " +
                                             self.calendarWidget.selectedDate().toString() + " ti occuperai di " +
                                             self.cmbTipo.currentText() + " dalle ore " + self.cmbInizio.currentText() + " alle ore " +
@@ -91,14 +91,14 @@ class GestioneOrari(object):
             self.messaggioErrore("Orario errato.")
 
     def controllaTurno(self):
-        self.ptxPreview.clear()
-        listaprenotati = self.gestorario.controlloGiorno(self.calendarWidget.selectedDate().toString())
+        self.ptxCasella.clear()
+        listaprenotati = self.objOrario.controlloGiorno(self.calendarWidget.selectedDate().toString())
         for elem in listaprenotati:
-            self.ptxPreview.appendPlainText("In data "+elem.data+" dalle ore "+elem.ora_inizio+" alle ore "+elem.ora_fine+
-                                    " nella sala "+elem.mansione+" è presente "+elem.staff)
+            self.ptxCasella.appendPlainText("In data " + elem.data + " dalle ore " + elem.ora_inizio + " alle ore " + elem.ora_fine +
+                                    " nella sala " + elem.mansione +" è presente " + elem.staff)
 
     def restituisciListaControllaTurno(self):
-        listaprenotati = self.gestorario.controlloGiorno(self.calendarWidget.selectedDate().toString())
+        listaprenotati = self.objOrario.controlloGiorno(self.calendarWidget.selectedDate().toString())
         return listaprenotati
 
 
@@ -118,7 +118,7 @@ class GestioneOrari(object):
             if elem.staff == self.username:
                 if self.chiediConferma("Verrà rimosso il turno di " + self.username + " dalla giornata di " +
                                        self.calendarWidget.selectedDate().toString(), "Continuare?"):
-                    self.gestorario.rimuoviTurno(self.username, self.calendarWidget.selectedDate().toString())
+                    self.objOrario.rimuoviTurno(self.username, self.calendarWidget.selectedDate().toString())
                     self.notifica.notificaTurno("admin", self.username.replace(" ", ""), "Il turno in data " +
                                                 self.calendarWidget.selectedDate().toString() + " di " +
                                                 self.cmbTipo.currentText() + " dalle ore " + self.cmbInizio.currentText() + " alle ore " +
@@ -151,9 +151,9 @@ class GestioneOrari(object):
         self.cmbTipo.setObjectName(u"cmbTipo")
         self.cmbTipo.setGeometry(QRect(380, 90, 131, 22))
         self.cmbTipo.setEditable(True)
-        self.ptxPreview = QPlainTextEdit(self.centralwidget)
-        self.ptxPreview.setObjectName(u"ptxPreview")
-        self.ptxPreview.setGeometry(QRect(40, 280, 701, 331))
+        self.ptxCasella = QPlainTextEdit(self.centralwidget)
+        self.ptxCasella.setObjectName(u"ptxCasella")
+        self.ptxCasella.setGeometry(QRect(40, 280, 701, 331))
         self.spbPaga = QDoubleSpinBox(self.centralwidget)
         self.spbPaga.setObjectName(u"spbPaga")
         self.spbPaga.setGeometry(QRect(410, 130, 62, 22))
@@ -174,15 +174,15 @@ class GestioneOrari(object):
         self.lblCompensi = QLabel(self.centralwidget)
         self.lblCompensi.setObjectName(u"lblCompensi")
         self.lblCompensi.setGeometry(QRect(500, 130, 231, 16))
-        self.label = QLabel(self.centralwidget)
-        self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(330, 20, 31, 20))
-        self.label_2 = QLabel(self.centralwidget)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setGeometry(QRect(330, 50, 20, 20))
-        self.label_3 = QLabel(self.centralwidget)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setGeometry(QRect(328, 90, 41, 20))
+        self.lblTesto_1 = QLabel(self.centralwidget)
+        self.lblTesto_1.setObjectName(u"lblTesto1")
+        self.lblTesto_1.setGeometry(QRect(330, 20, 31, 20))
+        self.lblTesto_2 = QLabel(self.centralwidget)
+        self.lblTesto_2.setObjectName(u"lblTesto_2")
+        self.lblTesto_2.setGeometry(QRect(330, 50, 20, 20))
+        self.lblTesto_3 = QLabel(self.centralwidget)
+        self.lblTesto_3.setObjectName(u"lblTesto_3")
+        self.lblTesto_3.setGeometry(QRect(328, 90, 41, 20))
         self.cmbFine = QComboBox(self.centralwidget)
         self.cmbFine.addItem("")
         self.cmbFine.addItem("")
@@ -221,14 +221,14 @@ class GestioneOrari(object):
         self.calendarWidget.setMaximumDate(QDate.currentDate().addMonths(3))
         self.calendarWidget.clicked.connect(self.controllaGiorno)
         self.btnSalva.clicked.connect(self.salva)
-        self.gestorario.recuperaSalvataggio("./Admin/gestione_personale/TurniStaff.txt")
+        self.objOrario.recuperaSalvataggio("./Admin/gestione_personale/TurniStaff.txt")
         self.btnRimuovi.clicked.connect(self.rimuoviGiornata)
         self.calendarWidget.setSelectedDate(QDate.currentDate())
         self.controllaTurno()
 
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Gestione turni", None))
         _translate = QtCore.QCoreApplication.translate
         self.cmbTipo.setItemText(0, QCoreApplication.translate("MainWindow", u"Sala Pesi", None))
         self.cmbTipo.setItemText(1, QCoreApplication.translate("MainWindow", u"Zumba", None))
@@ -238,10 +238,10 @@ class GestioneOrari(object):
         self.btnSalva.setText(QCoreApplication.translate("MainWindow", u"Salva", None))
         self.btnRimuovi.setText(QCoreApplication.translate("MainWindow", u"Rimuovi", None))
         self.lblCompensi.setText("")
-        self.ptxPreview.setPlainText(_translate("MainWindow", "Seleziona un giorno dal calendario."))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"Da", None))
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"A", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Sala", None))
+        self.ptxCasella.setPlainText(_translate("MainWindow", "Seleziona un giorno dal calendario."))
+        self.lblTesto_1.setText(QCoreApplication.translate("MainWindow", u"Da", None))
+        self.lblTesto_2.setText(QCoreApplication.translate("MainWindow", u"A", None))
+        self.lblTesto_3.setText(QCoreApplication.translate("MainWindow", u"Sala", None))
         self.cmbFine.setItemText(0, QCoreApplication.translate("MainWindow", u"11:00", None))
         self.cmbFine.setItemText(1, QCoreApplication.translate("MainWindow", u"12:30", None))
         self.cmbFine.setItemText(2, QCoreApplication.translate("MainWindow", u"14:00", None))

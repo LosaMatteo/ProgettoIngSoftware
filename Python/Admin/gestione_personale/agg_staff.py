@@ -1,16 +1,16 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from Data.MessageBox import messageBox
-from Model.Personale import Personale
+from Python.Data.MessageBox import messageBox
+from Python.Model.Personale import Personale
 
 
 class agg_personale(object):
 
     messaggio = messageBox()
 
-    def save(self):
-        if self.txtNome.text() != "" and self.txtCognome.text() != "" and self.txtCF.text() != "" \
+    def salva(self):
+        if self.txtNome.text() != "" and self.txtCognome.text() != "" and self.txtCodiceFiscale.text() != "" \
                 and self.txtOre.text() != "" and self.txtTitolo.text() != "":
-            staff = Personale(self.txtNome.text(), self.txtCognome.text(), self.txtCF.text(), self.txtOre.text(),
+            staff = Personale(self.txtNome.text(), self.txtCognome.text(), self.txtCodiceFiscale.text(), self.txtOre.text(),
                               self.txtTitolo.text())
             staff.addToList(staff)
             staff.scriviLista("./Admin/gestione_personale/CredenzialiStaff.txt")
@@ -20,7 +20,7 @@ class agg_personale(object):
     def cancella(self):
         self.txtNome.setText("")
         self.txtCognome.setText("")
-        self.txtCF.setText("")
+        self.txtCodiceFiscale.setText("")
         self.txtOre.setText("")
         self.txtTitolo.setText("")
 
@@ -52,15 +52,15 @@ class agg_personale(object):
         font.setPointSize(11)
         self.lblCognome.setFont(font)
         self.lblCognome.setObjectName("lblCognome")
-        self.lblCF = QtWidgets.QLabel(self.centralwidget)
-        self.lblCF.setGeometry(QtCore.QRect(130, 230, 141, 31))
+        self.lblCodiceFiscale = QtWidgets.QLabel(self.centralwidget)
+        self.lblCodiceFiscale.setGeometry(QtCore.QRect(130, 230, 141, 31))
         font = QtGui.QFont()
         font.setPointSize(11)
-        self.lblCF.setFont(font)
-        self.lblCF.setObjectName("lblCF")
-        self.txtCF = QtWidgets.QLineEdit(self.centralwidget)
-        self.txtCF.setGeometry(QtCore.QRect(280, 230, 151, 31))
-        self.txtCF.setObjectName("txtCF")
+        self.lblCodiceFiscale.setFont(font)
+        self.lblCodiceFiscale.setObjectName("lblCodiceFiscale")
+        self.txtCodiceFiscale = QtWidgets.QLineEdit(self.centralwidget)
+        self.txtCodiceFiscale.setGeometry(QtCore.QRect(280, 230, 151, 31))
+        self.txtCodiceFiscale.setObjectName("txtCodiceFiscale")
         self.lblOre = QtWidgets.QLabel(self.centralwidget)
         self.lblOre.setGeometry(QtCore.QRect(120, 270, 151, 31))
         font = QtGui.QFont()
@@ -103,18 +103,18 @@ class agg_personale(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-        self.btnSalva.clicked.connect(self.save)
+        self.btnSalva.clicked.connect(self.salva)
         self.btnAnnulla.clicked.connect(self.cancella)
         self.btnIndietro.clicked.connect(self.saveWindow.close)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Assunzione"))
         self.lblTitle.setText(_translate("MainWindow",
                                          "<html><head/><body><p align=\"center\">Aggiungi un membro dello staff</p></body></html>"))
         self.lblNome.setText(_translate("MainWindow", "Nome"))
         self.lblCognome.setText(_translate("MainWindow", "Cognome"))
-        self.lblCF.setText(_translate("MainWindow", "Codice fiscale"))
+        self.lblCodiceFiscale.setText(_translate("MainWindow", "Codice fiscale"))
         self.lblOre.setText(_translate("MainWindow", "Ore settimanali"))
         self.lblTitolo.setText(_translate("MainWindow", "<html><head/><body><p>Mansione</p></body></html>"))
         self.btnAnnulla.setText(_translate("MainWindow", "Cancella"))

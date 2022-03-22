@@ -1,11 +1,11 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from Model.Abbonamento import Abbonamento
-from Data.MessageBox import messageBox
+from Python.Model.Abbonamento import Abbonamento
+from Python.Data.MessageBox import messageBox
 
 
 class abbonamento_cliente(object):
-    clsAbbonamento = Abbonamento()
-    messaggio = messageBox()
+    objAbbonamento = Abbonamento()
+    objMessaggio = messageBox()
 
     def create_object_abbonamento(self):
         try:
@@ -30,12 +30,12 @@ class abbonamento_cliente(object):
                 tipo_abbonamento += "Abbonamento annuale all inclusive €420 - "
             if tipo_abbonamento != "":
                 objAll = Abbonamento(data_iscrizione, data_certificato_medico, tipo_abbonamento)
-                self.clsAbbonamento.addToList(objAll)
-                self.messaggio.show_popup_ok("Salvataggio effettuato!")
+                self.objAbbonamento.addToList(objAll)
+                self.objMessaggio.show_popup_ok("Salvataggio effettuato!")
             else:
-                self.messaggio.show_popup_exception("Non è stato selezionato nessun abbonamento!")
+                self.objMessaggio.show_popup_exception("Non è stato selezionato nessun abbonamento!")
         except(Exception):
-            self.messaggio.show_popup_exception("Errore durante il salvataggio!")
+            self.objMessaggio.show_popup_exception("Errore durante il salvataggio!")
 
     def setupUi(self, MainWindow):
         self.AbbonamentoWindow = MainWindow
@@ -170,7 +170,7 @@ class abbonamento_cliente(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Nuovo abbonamento"))
         self.btnAggiungi.setText(_translate("MainWindow", "Aggiungi"))
         self.btnAnnulla.setText(_translate("MainWindow", "Indietro"))
         self.lblDataIscrizione.setText(_translate("MainWindow", "Data di iscrizione"))
