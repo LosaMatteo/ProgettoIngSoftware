@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>570</width>
+    <height>602</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QToolBox" name="toolBox">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>30</y>
+     <width>551</width>
+     <height>531</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="page">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>551</width>
+      <height>283</height>
+     </rect>
+    </property>
+    <attribute name="label">
+     <string>Cos'è?</string>
+    </attribute>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>551</width>
+       <height>271</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;La dieta chetogenica è una strategia nutrizionalebasata sulla riduzione dei carboidrati&lt;/p&gt;&lt;p&gt; alimentari, che &amp;quot;obbliga&amp;quot; l'organismo a produrre autonomamente il glucosio &lt;/p&gt;&lt;p&gt;necessario alla sopravvivenza e ad aumentare il consumo energetico dei grassi &lt;/p&gt;&lt;p&gt;contenuti nel tessuto adiposo. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>551</width>
+      <height>293</height>
+     </rect>
+    </property>
+    <attribute name="label">
+     <string>Caratteristiche</string>
+    </attribute>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>551</width>
+       <height>261</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;La dieta chetogenica è uno schema nutrizionale:&lt;br/&gt;&lt;br/&gt;-A basso contenuto di calorie (dieta ipocalorica).&lt;/p&gt;&lt;p&gt;&lt;br/&gt;-A basso contenuto percentuale e assoluto di carboidrati (dieta low carb).&lt;/p&gt;&lt;p&gt;&lt;br/&gt;-Ad alto contenuto percentuale di lipidi.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;-Ad alto contenuto percentuale di proteine.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_3">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>551</width>
+      <height>293</height>
+     </rect>
+    </property>
+    <attribute name="label">
+     <string>Alimenti </string>
+    </attribute>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>-10</y>
+       <width>60</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>551</width>
+       <height>271</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Consigliati:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;-Carne, prodotti della pesca e uova – I gruppo fondamentale degli alimenti.&lt;/p&gt;&lt;p&gt;-Formaggi - II gruppo fondamentale degli alimenti.&lt;/p&gt;&lt;p&gt;-Grassi e oli da condimento – V gruppo fondamentale degli alimenti.&lt;/p&gt;&lt;p&gt;-Ortaggi – VI e VII gruppo fondamentale degli alimenti.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Sconsigliati:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;-Cereali, patate e derivati – III gruppo fondamentale degli alimenti.&lt;/p&gt;&lt;p&gt;-Legumi – IV gruppo fondamentale degli alimenti.&lt;/p&gt;&lt;p&gt;-Frutti - VI e VII gruppo fondamentale degli alimenti.&lt;/p&gt;&lt;p&gt;-Bibite dolci, dolciumi vari, birra ecc.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_5">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>551</width>
+      <height>293</height>
+     </rect>
+    </property>
+    <attribute name="label">
+     <string>Come funziona?</string>
+    </attribute>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>551</width>
+       <height>271</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Il meccanismo di funzionamento della dieta chetogenica si basa &lt;/p&gt;&lt;p&gt;sulla riduzione delle calorie e dei carboidrati alimentari che, &lt;/p&gt;&lt;p&gt;in associazione ad un giusto livello di proteine e un elevato&lt;/p&gt;&lt;p&gt; contenuto percentuale di grassi, dovrebbe migliorare la &lt;/p&gt;&lt;p&gt;lipolisi e l'ossidazione lipidica cellulare, quindi il consumo totale&lt;/p&gt;&lt;p&gt; di grassi ottimizzando il dimagrimento. La produzione di corpi&lt;/p&gt;&lt;p&gt; chetonici, che dev'essere assolutamente controllata, ha la &lt;/p&gt;&lt;p&gt;funzione di moderare lo stimolo &lt;/p&gt;&lt;p&gt;dell'appetito – per il loro effetto anoressizzante.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_4">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>551</width>
+      <height>293</height>
+     </rect>
+    </property>
+    <attribute name="label">
+     <string>Metabolismo chetogenico</string>
+    </attribute>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>551</width>
+       <height>271</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;La produzione energetica cellulare avviene grazie alla &lt;/p&gt;&lt;p&gt;metabolizzazione di alcuni substrati, soprattutto glucosio&lt;/p&gt;&lt;p&gt; ed acidi grassi. Per lo più, questo processo inizia nel citoplasma &lt;/p&gt;&lt;p&gt;(glicolisi anaerobica – senza ossigeno) e termina nei &lt;/p&gt;&lt;p&gt;mitocondri (ciclo di Krebs – con ossigeno - e ricarica dell'ATP).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_6">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>551</width>
+      <height>283</height>
+     </rect>
+    </property>
+    <attribute name="label">
+     <string>Utilizzi</string>
+    </attribute>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>551</width>
+       <height>271</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Questa strategia alimentare viene utilizzata soprattutto in tre contesti:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;-Dimagrimento (meglio se sotto controllo medico).&lt;/p&gt;&lt;p&gt;-Terapia alimentare di certe patologie metaboliche come l'iperglicemia cronica, &lt;/p&gt;&lt;p&gt;l'ipertrigliceridemia (solo sotto controllo medico), l'ipertensione arteriosa e la &lt;/p&gt;&lt;p&gt;sindrome metabolica (mai in presenza di patologie o sofferenza di fegato e/o reni)&lt;/p&gt;&lt;p&gt;-Riduzione dei sintomi associati all'epilessia infantile (esclusivamente quando il&lt;/p&gt;&lt;p&gt;soggetto non risponde alla terapia farmacologica e solo sotto controllo medico).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_7">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>551</width>
+      <height>293</height>
+     </rect>
+    </property>
+    <attribute name="label">
+     <string>Vantaggi</string>
+    </attribute>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>551</width>
+       <height>271</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Facilita il dimagrimento grazie a:&lt;/span&gt;&lt;/p&gt;&lt;p&gt;-Riduzione delle calorie totali.&lt;/p&gt;&lt;p&gt;-Mantenimento di glicemia e insulinemia costanti.&lt;/p&gt;&lt;p&gt;-Aumento del consumo di grassi a scopo energetico.&lt;/p&gt;&lt;p&gt;-Incremento del dispendio calorico globale per aumento .&lt;/p&gt;&lt;p&gt;dell'azione dinamico specifica e del &amp;quot;lavoro metabolico&amp;quot;.&lt;/p&gt;&lt;p&gt;-Ha un effetto anoressizzante.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_8">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>551</width>
+      <height>293</height>
+     </rect>
+    </property>
+    <attribute name="label">
+     <string>Svantaggi</string>
+    </attribute>
+    <widget class="QLabel" name="label_10">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>551</width>
+       <height>291</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;-Aumento della filtrazione renale e della diuresi.&lt;/p&gt;&lt;p&gt;-Tendenza alla disidratazione.&lt;/p&gt;&lt;p&gt;-Aumento del carico di lavoro dei reni.&lt;/p&gt;&lt;p&gt;-Possibile effetto tossico sui reni da parte dei corpi chetonici.&lt;br/&gt;-Possibile ipoglicemia o ipotensione.&lt;/p&gt;&lt;p&gt;-Mal di testa, affaticamento, vertigici, nausea o irrtabilità.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>10</y>
+     <width>121</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Dieta Chetogenica&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>570</y>
+     <width>93</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Indietro</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

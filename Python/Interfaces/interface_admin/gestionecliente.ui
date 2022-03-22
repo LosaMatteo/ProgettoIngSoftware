@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QListWidget" name="listWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>40</y>
+      <width>231</width>
+      <height>301</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblTitolo">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>231</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Seleziona il cliente</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txtNome">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>40</y>
+      <width>113</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txtCognome">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>70</y>
+      <width>113</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cmbSesso">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>100</y>
+      <width>111</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="editable">
+     <bool>true</bool>
+    </property>
+    <item>
+     <property name="text">
+      <string>Maschio</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Femmina</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QDateEdit" name="txtDataDiNascita">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>130</y>
+      <width>111</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="calendarPopup">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txtLuogoDiNascita">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>160</y>
+      <width>113</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txtCodiceFiscale">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>190</y>
+      <width>113</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QDateEdit" name="dtdDataIscrizione">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>40</y>
+      <width>111</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="calendarPopup">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QDateEdit" name="dtdScadenzaCertMedico">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>70</y>
+      <width>111</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="calendarPopup">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cmbTipoAbbonamento">
+    <property name="geometry">
+     <rect>
+      <x>610</x>
+      <y>100</y>
+      <width>181</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>7</pointsize>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="editable">
+     <bool>true</bool>
+    </property>
+    <item>
+     <property name="text">
+      <string>Abbonamento mensile sala pesi €30</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Abbonamento annuale sala pesi €300</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Abbonamento mensile functional €40</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Abbonamento annuale functional €360</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Abbonamento mensile zumba €35</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Abbonamento annuale zumba €340</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>abbonamento mensile all inclusive €42</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>abbonamento annuale all inclusive €420</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QPushButton" name="btnRimuovi">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>360</y>
+      <width>75</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Rimuovi</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnReset">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>400</y>
+      <width>101</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Reset password</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblNome">
+    <property name="geometry">
+     <rect>
+      <x>308</x>
+      <y>40</y>
+      <width>41</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Nome</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblCognome">
+    <property name="geometry">
+     <rect>
+      <x>298</x>
+      <y>70</y>
+      <width>51</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Cognome</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblSesso">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>100</y>
+      <width>49</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Sesso</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblDataDiNascita">
+    <property name="geometry">
+     <rect>
+      <x>268</x>
+      <y>130</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Data di nascita</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblLuogoDiNascita">
+    <property name="geometry">
+     <rect>
+      <x>258</x>
+      <y>160</y>
+      <width>91</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Luogo di nascita</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblCodFiscale">
+    <property name="geometry">
+     <rect>
+      <x>268</x>
+      <y>190</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Codice fiscale</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblIscrizione">
+    <property name="geometry">
+     <rect>
+      <x>508</x>
+      <y>40</y>
+      <width>91</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Data di iscrizione</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblScadenzaCertificato">
+    <property name="geometry">
+     <rect>
+      <x>498</x>
+      <y>70</y>
+      <width>101</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Scadenza cerificato</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lblAbbonamento">
+    <property name="geometry">
+     <rect>
+      <x>518</x>
+      <y>100</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Abbonamento</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnSalva">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>360</y>
+      <width>75</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Salva</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_Indietro">
+    <property name="geometry">
+     <rect>
+      <x>642</x>
+      <y>530</y>
+      <width>131</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Indietro</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

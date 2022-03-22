@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>536</width>
+    <height>596</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QToolBox" name="toolBox">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>30</y>
+     <width>531</width>
+     <height>511</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>3</number>
+   </property>
+   <widget class="QWidget" name="page">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>531</width>
+      <height>375</height>
+     </rect>
+    </property>
+    <attribute name="label">
+     <string>Cos'è?</string>
+    </attribute>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>531</width>
+       <height>381</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;La dieta ipocalorica è un regime alimentare che prevede un apporto &lt;br/&gt;calorico/energetico quotidiano inferiore a quello richiesto dall'organismo&lt;br/&gt;nell'arco della giornata.&lt;/p&gt;&lt;p&gt;All'occhio di un professionista, tale definizione potrebbe sembrare riduttiva&lt;br/&gt;o solo parzialmente condivisibile; in effetti, le caratteristiche e i requisiti di&lt;br/&gt;una buona dieta ipocalorica sono molto più numerosi, ma, in senso stretto, &lt;br/&gt;l'etimologia del termine è a dir poco essenziale, ovvero:&lt;/p&gt;&lt;p&gt;-&lt;span style=&quot; font-weight:600;&quot;&gt;Dieta:&lt;/span&gt; regole di alimentazione o regime alimentare controllato, frutto di &lt;br/&gt;un'indicazione terapeutica; dal greco &amp;quot;dìaita&amp;quot; che significa &amp;quot;stile di vita&amp;quot;.&lt;br/&gt;-&lt;span style=&quot; font-weight:600;&quot;&gt;ipo-&lt;/span&gt;: particella diminutiva.&lt;br/&gt;-&lt;span style=&quot; font-weight:600;&quot;&gt;calorica:&lt;/span&gt; che ha o apporta calorie/energia.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>531</width>
+      <height>375</height>
+     </rect>
+    </property>
+    <attribute name="label">
+     <string>Prescrizione</string>
+    </attribute>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>-10</y>
+       <width>531</width>
+       <height>381</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;DEVE &lt;/span&gt;essere prescritta/valutata/strutturata e seguita da un professionista &lt;/p&gt;&lt;p&gt;qualificato (dietologo, biologo specializzato in nutrizione o dietista).&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;DEVE&lt;/span&gt; essere utilizzata &lt;span style=&quot; font-weight:600;&quot;&gt;SOLO&lt;/span&gt; in caso di necessità; come se fosse un &lt;/p&gt;&lt;p&gt;&amp;quot;ciclo farmacologico&amp;quot;, la dieta ipocalorica NON giova alle persone sane&lt;/p&gt;&lt;p&gt; in normopeso e/o senza alterazioni del metabolismo che la rendano giustificabile.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_3">
+    <attribute name="label">
+     <string>Quando usarla</string>
+    </attribute>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>521</width>
+       <height>381</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;L'utilizzo &amp;quot;primario&amp;quot; di questa dieta è finalizzato al dimagrimento, &lt;/p&gt;&lt;p&gt;ovvero alla riduzione della massa grassa e della circonferenza addominale,&lt;/p&gt;&lt;p&gt;quindi dell'indice di massa corporea/body mass index (IMC/BMI). &lt;/p&gt;&lt;p&gt;E' ben noto quanto il sovrappeso e ancor peggio l'obesità siano correlati &lt;/p&gt;&lt;p&gt;all'insorgenza di malattie metaboliche, primarie e secondarie, di natura &lt;/p&gt;&lt;p&gt;ambientale e/o ereditaria; alcuni esempi sono:&lt;/p&gt;&lt;p&gt;-&lt;span style=&quot; font-weight:600;&quot;&gt;dislipidemie&lt;/span&gt; (colesterolo TOT e/o LDL alto, trigliceridi alti, entrambi).&lt;/p&gt;&lt;p&gt;-&lt;span style=&quot; font-weight:600;&quot;&gt;ipertensione arteriosa&lt;/span&gt;.&lt;/p&gt;&lt;p&gt;-&lt;span style=&quot; font-weight:600;&quot;&gt;iperuricemia&lt;/span&gt; e/o &lt;span style=&quot; font-weight:600;&quot;&gt;gotta&lt;/span&gt;.&lt;/p&gt;&lt;p&gt;- &lt;span style=&quot; font-weight:600;&quot;&gt;iperglicemia&lt;/span&gt; o&lt;span style=&quot; font-weight:600;&quot;&gt; diabete mellito tipo 2&lt;/span&gt;.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_4">
+    <attribute name="label">
+     <string>Come Strutturarla</string>
+    </attribute>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>531</width>
+       <height>381</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Il rispetto della dieta ipocalorica è sempre il risultato di una formula&lt;/p&gt;&lt;p&gt; astratta &lt;span style=&quot; font-weight:600;&quot;&gt;NON&lt;/span&gt; matematicamente valutabile, le cui variabili sono:&lt;br/&gt;&lt;br/&gt;-Rapporto paziente-operatore (fiducia, onestà, empatia, capacità di &lt;/p&gt;&lt;p&gt;dialogo, capacità di ascolto e comprensione, comunicatività, intuito,&lt;/p&gt;&lt;p&gt; astuzia, capacità di indurre motivazione ecc.)&lt;/p&gt;&lt;p&gt;&lt;br/&gt;-Accuratezza e precisione del metodo.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;-Personalizzazione.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>10</y>
+     <width>121</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Dieta Ipocalorica&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>550</y>
+     <width>113</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Indietro</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

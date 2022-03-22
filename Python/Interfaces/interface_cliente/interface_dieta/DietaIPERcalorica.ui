@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>526</width>
+    <height>586</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QToolBox" name="toolBox">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>30</y>
+     <width>511</width>
+     <height>501</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>3</number>
+   </property>
+   <widget class="QWidget" name="page">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>511</width>
+      <height>365</height>
+     </rect>
+    </property>
+    <attribute name="label">
+     <string>Cos'è?</string>
+    </attribute>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>511</width>
+       <height>381</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;La dieta ipercalorica è un regime alimentare utile a fornire più energia,&lt;/p&gt;&lt;p&gt;nutrienti e acqua rispetto al regime alimentare per il mantenimento&lt;/p&gt;&lt;p&gt;del peso; viene utilizzata nel ripristino del peso (INCREMENTO&lt;/p&gt;&lt;p&gt;ponderale) dei soggetti valutati in sottopeso (ovvero con &lt;/p&gt;&lt;p&gt;un indice di massa corporea &amp;lt;18,5 punti), e/o malnutriti.&lt;/p&gt;&lt;p&gt;In alcuni casi, la dieta ipercalorica può rappresentare un valido sostegno &lt;/p&gt;&lt;p&gt;per gli allenamenti di ginnastica pesante incentrati sullo sviluppo della &lt;/p&gt;&lt;p&gt;massa muscolare (aumento della sezione trasversa dei fasci), &lt;/p&gt;&lt;p&gt;purché rispettino i principi fondamentali della dietetica.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_3">
+    <attribute name="label">
+     <string>Principi Fondamentali</string>
+    </attribute>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>511</width>
+       <height>381</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;-Equilibrio nutrizionale dei macronutrienti energetici: 25% lipidi, &lt;/p&gt;&lt;p&gt;0,75-1,5g/kg di peso fisiologico desiderabile di proteine, &lt;/p&gt;&lt;p&gt;il resto dell'energia sotto forma di glucidi.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;-Garanzia dei nutrienti essenziali, delle vitamine e dei sali minerali &lt;/p&gt;&lt;p&gt;(è sufficiente attenersi alle linee guida di una buona e sana alimentazione)&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;-Surplus energetico MASSIMO del 10% rispetto alla normo-calorica.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;-Contenimento dei nutrienti potenzialmente nocivi se in eccesso: &lt;/p&gt;&lt;p&gt;colesterolo, saccarosio aggiunto, cloruro di sodio (Na), &lt;/p&gt;&lt;p&gt;grassi saturi, in alcuni casi anche la fibra ecc.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>511</width>
+      <height>365</height>
+     </rect>
+    </property>
+    <attribute name="label">
+     <string>Indicazioni Pratiche</string>
+    </attribute>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>511</width>
+       <height>381</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;A livello pratico, la dieta ipercalorica non è di difficile stesura; &lt;/p&gt;&lt;p&gt;è sufficiente svolgere l'impostazione di una normo-calorica &lt;/p&gt;&lt;p&gt;+ 10% dell'energia, adattare l'apporto proteico in base alle&lt;/p&gt;&lt;p&gt; necessità (tra 0,75 e 1,5g/kg) e scegliere correttamente &lt;/p&gt;&lt;p&gt;gli alimenti per il raggiungimento di tutti i&lt;/p&gt;&lt;p&gt; fabbisogni raccomandati (ferro, calcio, tiamina, riboflavina, niacina, ecc).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_4">
+    <attribute name="label">
+     <string>Cosa mangiare?</string>
+    </attribute>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>521</width>
+       <height>371</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Non ci sono cibi specifici, l’importante resta l’assicurarsi il bilancio energetico &lt;br/&gt;positivo. Anche se potrebbe essere facile pensare che debba essere un regime&lt;br/&gt;alimentare molto ricco di alimenti proteici, in realtà non deve necessariamente &lt;br/&gt;essere (come vedremo) una dieta iperproteica.&lt;/p&gt;&lt;p&gt;Mangiare di più significa che le quantità e/o la qualità dei tuoi pasti cambia: &lt;br/&gt;le porzioni di uno stesso alimento diventano più grandi oppure ti dirigi verso &lt;br/&gt;la scelta di alimenti più calorici a parità di quantità. &lt;br/&gt;Soprattutto se ti sazi facilmente, è consigliabile:&lt;/p&gt;&lt;p&gt;-&lt;span style=&quot; font-weight:600;&quot;&gt;scegliere fonti densamente energetiche&lt;/span&gt;: quelle che anche in piccole quantità &lt;br/&gt;apportano molta energia, come ad esempio olio e frutta secca.&lt;/p&gt;&lt;p&gt;-&lt;span style=&quot; font-weight:600;&quot;&gt;scegliere cibi meno sazianti:&lt;/span&gt; perciò limitare il consumo di prodotti fibrosi (cereali &lt;br/&gt;integrali, legumi) e/o acquosi (alimenti freschi come frutta, verdura).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>10</y>
+     <width>121</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Dieta Ipercalorica&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>540</y>
+     <width>113</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Indietro</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
