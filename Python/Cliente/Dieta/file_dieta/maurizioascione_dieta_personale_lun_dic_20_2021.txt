@@ -1,0 +1,16 @@
+    def open(self):
+        try:
+            path = "./Cliente/Dieta/file_dieta"
+            listafiles = [f for f in listdir(path) if isfile(join(path, f))]
+            for elem in listafiles:
+                if elem.startswith(self.listWidget_3.currentItem().text().replace(" ", "") + "_dieta_personale_"):
+                    self.listafilesutente.append(elem)
+
+            file = self.listafilesutente[self.listWidget_3.currentRow()]
+            os.chdir("./Cliente/Dieta/file_dieta")
+            os.system(file)
+            os.chdir("..")
+            os.chdir("..")
+            os.chdir("..")
+        except(Exception):
+            self.msg.show_popup_exception("Errore")
