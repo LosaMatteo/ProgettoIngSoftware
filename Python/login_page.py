@@ -13,7 +13,7 @@ class Ui_ATHENEO(object):
     objClient = Client()
     objPersonale = Personale()
     admin1 = admin("admin","1")
-    listaaccessi = []
+    lista_accessi = []
 
 
     def open_window(self):
@@ -48,12 +48,12 @@ class Ui_ATHENEO(object):
     def split_line(self):
         self.objClient.recuperaSalvataggio("./Admin/gestione_cliente/CredenzialiClienti.txt")
         self.objPersonale.recuperaSalvataggio("./Admin/gestione_personale/CredenzialiStaff.txt")
-        self.listaaccessi.clear()
+        self.lista_accessi.clear()
         credenziali_admin = dict()
         credenziali_admin[self.admin1.username] = self.admin1.password
-        self.listaaccessi.append(credenziali_admin)
-        self.listaaccessi.append(self.objPersonale.getClCred())
-        self.listaaccessi.append(self.objClient.getClCred())
+        self.lista_accessi.append(credenziali_admin)
+        self.lista_accessi.append(self.objPersonale.getClCred())
+        self.lista_accessi.append(self.objClient.getClCred())
 
     def login_check(self):
         datiaccesso = []
@@ -66,7 +66,7 @@ class Ui_ATHENEO(object):
         psw = self.txtBox_psw.text()
         i = 0
 
-        for elem in self.listaaccessi:
+        for elem in self.lista_accessi:
             for usernames in elem.keys():
                 if usernames == user and elem[usernames] == psw:
                     datiaccesso.append(i)
