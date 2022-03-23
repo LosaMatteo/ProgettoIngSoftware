@@ -1,6 +1,5 @@
 import pickle
-
-from Data.gestioneObject import gestObj
+from Python.Data.gestioneObject import gestObj
 
 class Orario(object):
     lista_turni = []

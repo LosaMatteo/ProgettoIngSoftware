@@ -16,8 +16,8 @@ class Casella_di_messaggio(object):
         objCliente = Cliente()
         objPersonale = Personale()
         self.lblMittente.setText(self.username)
-        if self.username != "admin":
-            self.cmbDestinatari.addItem("A-admin")
+        if self.username != "Admin":
+            self.cmbDestinatari.addItem("A-Admin")
         vett = objCliente.get_lista()
         for elem in vett:
             if elem != self.username:
@@ -121,7 +121,7 @@ class Casella_di_messaggio(object):
         MainWindow.setStatusBar(self.statusbar)
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-        if self.username != "admin":
+        if self.username != "Admin":
             self.chkStaff.hide()
             self.chkClienti.hide()
         self.popola_comboBox()

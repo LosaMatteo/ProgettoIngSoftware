@@ -3,21 +3,21 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QDate
 from os import listdir
 from os.path import isfile, join
-from Data.casella_di_messaggi.Casella_di_messaggio import Casella_di_messaggio
-from Data.casella_di_messaggi.leggi_messaggio import lettura_messaggio
-from Data.interface_password import change_password
-from Model.Cliente import Client
-from Data.MessageBox import messageBox
-from Model.Messaggio import Messaggio
-from Model.Orario import Orario
-from Staff.Allenamento_staff.allenamento_staff import allenamento_staff
-from Staff.Dieta_staff.dieta_personale import dieta_staff
+from Python.Data.casella_di_messaggi.Casella_di_messaggio import Casella_di_messaggio
+from Python.Data.casella_di_messaggi.leggi_messaggio import lettura_messaggio
+from Python.Data.interface_password import change_password
+from Python.Model.Cliente import Cliente
+from Python.Data.MessageBox import messageBox
+from Python.Model.Messaggio import Messaggio
+from Python.Model.Orario import Orario
+from Python.Staff.Allenamento_staff.allenamento_staff import allenamento_staff
+from Python.Staff.Dieta_staff.dieta_personale import dieta_staff
 
 
 class GUI_staff(object):
 
     gestione_orario = Orario()
-    cliente = Client()
+    cliente = Cliente()
     username = ""
     username_cliente = ""
     messaggio = Messaggio()

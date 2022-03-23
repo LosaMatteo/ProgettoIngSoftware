@@ -5,14 +5,14 @@ from os.path import isfile, join
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QDate
 from PyQt5.QtWidgets import QFileDialog
-from Model.Cliente import Client
-from Data.MessageBox import messageBox
+from Python.Model.Cliente import Cliente
+from Python.Data.MessageBox import messageBox
 import shutil
 import os
 
 class dieta_staff(object):
     msg_box = messageBox()
-    cliente = Client()
+    cliente = Cliente()
     peso = 0
 
     def allega_file(self):
@@ -348,6 +348,7 @@ class dieta_staff(object):
         self.label_24.setText(_translate("MainWindow", "<html><head/><body><p><br/></p></body></html>"))
         self.rbtnSuggerimenti.setText(_translate("MainWindow", "Mostra suggerimenti"))
         self.rbtnNoteCliente.setText(_translate("MainWindow", "Mostra note del cliente"))
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)

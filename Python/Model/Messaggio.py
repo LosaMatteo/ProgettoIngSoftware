@@ -1,4 +1,4 @@
-from Data.gestioneObject import gestObj
+from Python.Data.gestioneObject import gestObj
 
 
 class Messaggio(object):

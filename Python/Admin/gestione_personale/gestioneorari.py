@@ -80,7 +80,7 @@ class GestioneOrari(object):
                              self.cmbFine.currentText(),
                              self.username, self.spbPaga.text(), self.cmbTipo.currentText())
                 self.objOrario.addToList(ora)
-                self.notifica.notificaTurno("admin", self.username.replace(" ", ""), "In data " +
+                self.notifica.notificaTurno("Admin", self.username.replace(" ", ""), "In data " +
                                             self.calendarWidget.selectedDate().toString() + " ti occuperai di " +
                                             self.cmbTipo.currentText() + " dalle ore " + self.cmbInizio.currentText() + " alle ore " +
                                             self.cmbFine.currentText())
@@ -119,7 +119,7 @@ class GestioneOrari(object):
                 if self.chiediConferma("Verrà rimosso il turno di " + self.username + " dalla giornata di " +
                                        self.calendarWidget.selectedDate().toString(), "Continuare?"):
                     self.objOrario.rimuoviTurno(self.username, self.calendarWidget.selectedDate().toString())
-                    self.notifica.notificaTurno("admin", self.username.replace(" ", ""), "Il turno in data " +
+                    self.notifica.notificaTurno("Admin", self.username.replace(" ", ""), "Il turno in data " +
                                                 self.calendarWidget.selectedDate().toString() + " di " +
                                                 self.cmbTipo.currentText() + " dalle ore " + self.cmbInizio.currentText() + " alle ore " +
                                                 self.cmbFine.currentText() + " è stato cancellato.")
