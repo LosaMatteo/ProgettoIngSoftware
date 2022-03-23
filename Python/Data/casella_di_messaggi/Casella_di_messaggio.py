@@ -1,66 +1,66 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from Data.MessageBox import messageBox
-from Model.Cliente import Client
-from Model.Personale import Personale
-from Model.Messaggio import Messaggio
+from Python.Data.MessageBox import messageBox
+from Python.Model.Cliente import Cliente
+from Python.Model.Personale import Personale
+from Python.Model.Messaggio import Messaggio
 from datetime import datetime
 
 
 class Casella_di_messaggio(object):
     msg = messageBox()
-    clsMessaggi = Messaggio()
+    objMessaggio = Messaggio()
     username = ""
-    emittente = ""
+    mittente = ""
 
     def popola_comboBox(self):
-        cliente = Client()
-        staff = Personale()
-        self.label_4.setText(self.username)
+        objCliente = Cliente()
+        objPersonale = Personale()
+        self.lblMittente.setText(self.username)
         if self.username != "admin":
-            self.comboBox_2.addItem("A-admin")
-        vett = cliente.get_lista()
+            self.cmbDestinatari.addItem("A-admin")
+        vett = objCliente.get_lista()
         for elem in vett:
             if elem != self.username:
-             self.comboBox_2.addItem("C-" + elem)
-        vett = staff.get_lista()
+             self.cmbDestinatari.addItem("C-" + elem)
+        vett = objPersonale.get_lista()
         for elem in vett:
             if elem != self.username:
-             self.comboBox_2.addItem("P-" + elem)
+             self.cmbDestinatari.addItem("P-" + elem)
 
     def scrittura_file_messaggi(self):
-        cliente = Client()
-        staff = Personale()
+        objCliente = Cliente()
+        objPersonale = Personale()
         if self.chkClienti.isChecked() == False and self.chkStaff.isChecked() == False:
-            destinatario = self.comboBox_2.currentText().split("-")
+            destinatario = self.cmbDestinatari.currentText().split("-")
             self.spedisciMessaggio(destinatario[1])
         if self.chkClienti.isChecked() == True:
-            vett = cliente.get_lista()
+            vett = objCliente.get_lista()
             for elem in vett:
                 self.spedisciMessaggio(elem)
         if self.chkStaff.isChecked() == True:
-            vett = staff.get_lista()
+            vett = objPersonale.get_lista()
             for elem in vett:
                 self.spedisciMessaggio(elem)
         self.msg.show_popup_ok("il tuo contenuto è stato inviato correttamente")
         self.finestra.close()
 
     def spedisciMessaggio(self, destinatario):
-        messaggi = Messaggio(self.username, destinatario, self.plainTextEdit.toPlainText(),
+        messaggi = Messaggio(self.username, destinatario, self.ptxTesto.toPlainText(),
                              datetime.today().strftime('%Y-%m-%d-%H:%M'))
         messaggi.addToList(messaggi)
         #self.messaggi.scriviLista("./Data/casella_di_messaggi/messaggi.txt")
 
     def notificaTurno(self, mittente, destinatario, messaggio):
-        messaggi = Messaggio(mittente, destinatario, messaggio,
+        notifica = Messaggio(mittente, destinatario, messaggio,
                              datetime.today().strftime('%Y-%m-%d-%H:%M'))
-        messaggi.addToList(messaggi)
+        notifica.addToList(notifica)
         self.msg.show_popup_ok("il tuo contenuto è stato inviato correttamente")
 
     def selezioneDestinatario(self):
         if self.chkClienti.isChecked() or self.chkStaff.isChecked():
-            self.comboBox_2.setDisabled(True)
+            self.cmbDestinatari.setDisabled(True)
         else:
-            self.comboBox_2.setDisabled(False)
+            self.cmbDestinatari.setDisabled(False)
 
 
     def setupUi(self, MainWindow, username):
@@ -70,41 +70,41 @@ class Casella_di_messaggio(object):
         MainWindow.resize(535, 450)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(40, 60, 31, 20))
+        self.lblTesto_2 = QtWidgets.QLabel(self.centralwidget)
+        self.lblTesto_2.setGeometry(QtCore.QRect(40, 60, 31, 20))
         font = QtGui.QFont()
         font.setBold(True)
-        self.label.setFont(font)
-        self.label.setObjectName("label")
-        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(360, 330, 141, 28))
-        self.pushButton.setObjectName("pushButton")
-        self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(30, 30, 41, 20))
+        self.lblTesto_2.setFont(font)
+        self.lblTesto_2.setObjectName("lblTesto_2")
+        self.btnInviaMessaggio = QtWidgets.QPushButton(self.centralwidget)
+        self.btnInviaMessaggio.setGeometry(QtCore.QRect(360, 330, 141, 28))
+        self.btnInviaMessaggio.setObjectName("btnInviaMessaggio")
+        self.lblTesto_1 = QtWidgets.QLabel(self.centralwidget)
+        self.lblTesto_1.setGeometry(QtCore.QRect(30, 30, 41, 20))
         font = QtGui.QFont()
         font.setBold(True)
-        self.label_2.setFont(font)
-        self.label_2.setObjectName("label_2")
-        self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        self.label_3.setGeometry(QtCore.QRect(20, 90, 55, 31))
+        self.lblTesto_1.setFont(font)
+        self.lblTesto_1.setObjectName("lblTesto_1")
+        self.lblTesto_3 = QtWidgets.QLabel(self.centralwidget)
+        self.lblTesto_3.setGeometry(QtCore.QRect(20, 90, 55, 31))
         font = QtGui.QFont()
         font.setBold(True)
-        self.label_3.setFont(font)
-        self.label_3.setObjectName("label_3")
-        self.comboBox_2 = QtWidgets.QComboBox(self.centralwidget)
-        self.comboBox_2.setGeometry(QtCore.QRect(90, 60, 151, 22))
-        self.comboBox_2.setObjectName("comboBox_2")
-        self.plainTextEdit = QtWidgets.QPlainTextEdit(self.centralwidget)
-        self.plainTextEdit.setGeometry(QtCore.QRect(90, 100, 421, 211))
-        self.plainTextEdit.setPlainText("")
-        self.plainTextEdit.setObjectName("plainTextEdit")
-        self.label_4 = QtWidgets.QLabel(self.centralwidget)
-        self.label_4.setGeometry(QtCore.QRect(90, 30, 151, 21))
+        self.lblTesto_3.setFont(font)
+        self.lblTesto_3.setObjectName("lblTesto_3")
+        self.cmbDestinatari = QtWidgets.QComboBox(self.centralwidget)
+        self.cmbDestinatari.setGeometry(QtCore.QRect(90, 60, 151, 22))
+        self.cmbDestinatari.setObjectName("cmbDestinatari")
+        self.ptxTesto = QtWidgets.QPlainTextEdit(self.centralwidget)
+        self.ptxTesto.setGeometry(QtCore.QRect(90, 100, 421, 211))
+        self.ptxTesto.setPlainText("")
+        self.ptxTesto.setObjectName("ptxTesto")
+        self.lblMittente = QtWidgets.QLabel(self.centralwidget)
+        self.lblMittente.setGeometry(QtCore.QRect(90, 30, 151, 21))
         font = QtGui.QFont()
         font.setBold(True)
-        self.label_4.setFont(font)
-        self.label_4.setText("")
-        self.label_4.setObjectName("label_4")
+        self.lblMittente.setFont(font)
+        self.lblMittente.setText("")
+        self.lblMittente.setObjectName("lblMittente")
         self.chkClienti = QtWidgets.QCheckBox(self.centralwidget)
         self.chkClienti.setGeometry(QtCore.QRect(280, 60, 91, 20))
         self.chkClienti.setObjectName("chkClienti")
@@ -125,18 +125,18 @@ class Casella_di_messaggio(object):
             self.chkStaff.hide()
             self.chkClienti.hide()
         self.popola_comboBox()
-        self.clsMessaggi.recuperaSalvataggio("./Data/casella_di_messaggi/messaggi.txt")
-        self.pushButton.clicked.connect(self.scrittura_file_messaggi)
+        self.objMessaggio.recuperaSalvataggio("./Data/casella_di_messaggi/messaggi.txt")
+        self.btnInviaMessaggio.clicked.connect(self.scrittura_file_messaggi)
         self.chkStaff.clicked.connect(self.selezioneDestinatario)
         self.chkClienti.clicked.connect(self.selezioneDestinatario)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label.setText(_translate("MainWindow", "A:"))
-        self.pushButton.setText(_translate("MainWindow", "Invia Messaggio"))
-        self.label_2.setText(_translate("MainWindow", "DA:"))
-        self.label_3.setText(_translate("MainWindow", "Oggetto:"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Scrivi messaggio"))
+        self.lblTesto_2.setText(_translate("MainWindow", "A:"))
+        self.btnInviaMessaggio.setText(_translate("MainWindow", "Invia Messaggio"))
+        self.lblTesto_1.setText(_translate("MainWindow", "DA:"))
+        self.lblTesto_3.setText(_translate("MainWindow", "Oggetto:"))
         self.chkClienti.setText(_translate("MainWindow", "Tutti i clienti"))
         self.chkStaff.setText(_translate("MainWindow", "Tutto lo staff"))
 
