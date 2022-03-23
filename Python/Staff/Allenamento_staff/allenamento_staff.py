@@ -3,8 +3,8 @@ from os.path import isfile, join
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QDate
 from PyQt5.QtWidgets import QMessageBox
-from Model.Cliente import Client
-from Data.MessageBox import messageBox
+from Python.Model.Cliente import Cliente
+from Python.Data.MessageBox import messageBox
 
 
 class allenamento_staff(object):
@@ -289,7 +289,7 @@ class allenamento_staff(object):
             self.appari()
 
     def controlloEsistenza(self):
-        cliente = Client()
+        cliente = Cliente()
         cliente = cliente.getObject(self.username.replace(" ", ""))
         path = "Staff/Allenamento_staff/file_scheda_allenamento"
         lista_files = [f for f in listdir(path) if isfile(join(path, f))]

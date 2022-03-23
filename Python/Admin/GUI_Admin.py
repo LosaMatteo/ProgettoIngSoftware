@@ -387,7 +387,7 @@ class GUI_Admin(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Interfaccia admin"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Interfaccia Admin"))
         self.btnAggiungiCliente.setText(_translate("MainWindow", "Aggiungi"))
         self.btnModificaCliente.setText(_translate("MainWindow", "Visualizza"))
         self.lblTitoloTabellaCliente.setText(

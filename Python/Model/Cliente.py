@@ -1,5 +1,5 @@
-from Data.gestioneObject import gestObj
-from Model.Abbonamento import Abbonamento
+from Python.Data.gestioneObject import gestObj
+from Python.Model.Abbonamento import Abbonamento
 
 
 class Cliente(object):

@@ -1,4 +1,4 @@
-class admin(object):
+class Admin(object):
 
     def __init__(self, username, password):
         self.username = username
