@@ -2,7 +2,7 @@ from Data.gestioneObject import gestObj
 
 
 class Abbonamento(object):
-    listaAbb = []
+    lista_abbonamento = []
     gobj = gestObj()
     def __init__(self, data_iscrizione="", data_certificato_medico="", tipo_di_abbonamento=""):
         if data_iscrizione != "":
@@ -11,10 +11,10 @@ class Abbonamento(object):
             self.tipo_di_abbonamento = tipo_di_abbonamento
 
     def addToList(self, obj):
-        self.gobj.addToList(obj, self.listaAbb)
+        self.gobj.addToList(obj, self.lista_abbonamento)
 
 
     def getObj(self):
-        tempvar = self.listaAbb[0]
-        self.listaAbb.pop()
-        return tempvar
+        oggetto = self.lista_abbonamento[0]
+        self.lista_abbonamento.pop()
+        return oggetto

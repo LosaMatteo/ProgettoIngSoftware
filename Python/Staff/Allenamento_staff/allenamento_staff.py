@@ -9,224 +9,225 @@ from Data.MessageBox import messageBox
 
 class allenamento_staff(object):
     username = ""
-    vett =[]
-    msg = messageBox()
+    lista_esercizi = []
+    msg_box = messageBox()
+
     def carica_lista(self):
-        vett = []
+        lista = []
         self.listWidget.clear()
         if self.checkBox.checkState():
-            vett.append(self.checkBox.text())
+            lista.append(self.checkBox.text())
         if self.checkBox_2.checkState():
-            vett.append(self.checkBox_2.text())
+            lista.append(self.checkBox_2.text())
         if self.checkBox_3.checkState():
-            vett.append(self.checkBox_3.text())
+            lista.append(self.checkBox_3.text())
         if self.checkBox_4.checkState():
-            vett.append(self.checkBox_4.text())
+            lista.append(self.checkBox_4.text())
         if self.checkBox_5.checkState():
-            vett.append(self.checkBox_5.text())
+            lista.append(self.checkBox_5.text())
         if self.checkBox_6.checkState():
-            vett.append(self.checkBox_6.text())
+            lista.append(self.checkBox_6.text())
         if self.checkBox_7.checkState():
-            vett.append(self.checkBox_7.text())
+            lista.append(self.checkBox_7.text())
         if self.checkBox_8.checkState():
-            vett.append(self.checkBox_8.text())
+            lista.append(self.checkBox_8.text())
         if self.checkBox_9.checkState():
-            vett.append(self.checkBox_9.text())
+            lista.append(self.checkBox_9.text())
         if self.checkBox_10.checkState():
-            vett.append(self.checkBox_10.text())
+            lista.append(self.checkBox_10.text())
         if self.checkBox_11.checkState():
-            vett.append(self.checkBox_11.text())
+            lista.append(self.checkBox_11.text())
         if self.checkBox_12.checkState():
-            vett.append(self.checkBox_12.text())
+            lista.append(self.checkBox_12.text())
         if self.checkBox_13.checkState():
-            vett.append(self.checkBox_13.text())
+            lista.append(self.checkBox_13.text())
         if self.checkBox_14.checkState():
-            vett.append(self.checkBox_14.text())
+            lista.append(self.checkBox_14.text())
         if self.checkBox_15.checkState():
-            vett.append(self.checkBox_15.text())
+            lista.append(self.checkBox_15.text())
         if self.checkBox_16.checkState():
-            vett.append(self.checkBox_16.text())
+            lista.append(self.checkBox_16.text())
         if self.checkBox_17.checkState():
-            vett.append(self.checkBox_17.text())
+            lista.append(self.checkBox_17.text())
         if self.checkBox_18.checkState():
-            vett.append(self.checkBox_18.text())
+            lista.append(self.checkBox_18.text())
         if self.checkBox_19.checkState():
-            vett.append(self.checkBox_19.text())
+            lista.append(self.checkBox_19.text())
         if self.checkBox_20.checkState():
-            vett.append(self.checkBox_20.text())
+            lista.append(self.checkBox_20.text())
         if self.checkBox_21.checkState():
-            vett.append(self.checkBox_21.text())
+            lista.append(self.checkBox_21.text())
         if self.checkBox_22.checkState():
-            vett.append(self.checkBox_22.text())
+            lista.append(self.checkBox_22.text())
         if self.checkBox_23.checkState():
-            vett.append(self.checkBox_23.text())
+            lista.append(self.checkBox_23.text())
         if self.checkBox_24.checkState():
-            vett.append(self.checkBox_24.text())
+            lista.append(self.checkBox_24.text())
         if self.checkBox_25.checkState():
-            vett.append(self.checkBox_25.text())
+            lista.append(self.checkBox_25.text())
         if self.checkBox_26.checkState():
-            vett.append(self.checkBox_26.text())
+            lista.append(self.checkBox_26.text())
         if self.checkBox_27.checkState():
-            vett.append(self.checkBox_27.text())
+            lista.append(self.checkBox_27.text())
         if self.checkBox_28.checkState():
-            vett.append(self.checkBox_28.text())
+            lista.append(self.checkBox_28.text())
         if self.checkBox_29.checkState():
-            vett.append(self.checkBox_29.text())
+            lista.append(self.checkBox_29.text())
         if self.checkBox_30.checkState():
-            vett.append(self.checkBox_30.text())
+            lista.append(self.checkBox_30.text())
         if self.checkBox_31.checkState():
-            vett.append(self.checkBox_31.text())
+            lista.append(self.checkBox_31.text())
         if self.checkBox_32.checkState():
-            vett.append(self.checkBox_32.text())
+            lista.append(self.checkBox_32.text())
         if self.checkBox_33.checkState():
-            vett.append(self.checkBox_33.text())
+            lista.append(self.checkBox_33.text())
         if self.checkBox_34.checkState():
-            vett.append(self.checkBox_34.text())
+            lista.append(self.checkBox_34.text())
         if self.checkBox_35.checkState():
-            vett.append(self.checkBox_35.text())
+            lista.append(self.checkBox_35.text())
         if self.checkBox_36.checkState():
-            vett.append(self.checkBox_36.text())
+            lista.append(self.checkBox_36.text())
         if self.checkBox_37.checkState():
-            vett.append(self.checkBox_37.text())
+            lista.append(self.checkBox_37.text())
         if self.checkBox_38.checkState():
-            vett.append(self.checkBox_38.text())
+            lista.append(self.checkBox_38.text())
         if self.checkBox_39.checkState():
-            vett.append(self.checkBox_39.text())
+            lista.append(self.checkBox_39.text())
         if self.checkBox_40.checkState():
-            vett.append(self.checkBox_40.text())
+            lista.append(self.checkBox_40.text())
         if self.checkBox_41.checkState():
-            vett.append(self.checkBox_41.text())
+            lista.append(self.checkBox_41.text())
         if self.checkBox_42.checkState():
-            vett.append(self.checkBox_42.text())
+            lista.append(self.checkBox_42.text())
         if self.checkBox_43.checkState():
-            vett.append(self.checkBox_43.text())
+            lista.append(self.checkBox_43.text())
         if self.checkBox_44.checkState():
-            vett.append(self.checkBox_44.text())
+            lista.append(self.checkBox_44.text())
         if self.checkBox_45.checkState():
-            vett.append(self.checkBox_45.text())
+            lista.append(self.checkBox_45.text())
         if self.checkBox_46.checkState():
-            vett.append(self.checkBox_46.text())
+            lista.append(self.checkBox_46.text())
         if self.checkBox_47.checkState():
-            vett.append(self.checkBox_47.text())
+            lista.append(self.checkBox_47.text())
         if self.checkBox_48.checkState():
-            vett.append(self.checkBox_48.text())
+            lista.append(self.checkBox_48.text())
         if self.checkBox_49.checkState():
-            vett.append(self.checkBox_49.text())
+            lista.append(self.checkBox_49.text())
         if self.checkBox_50.checkState():
-            vett.append(self.checkBox_50.text())
+            lista.append(self.checkBox_50.text())
         if self.checkBox_51.checkState():
-            vett.append(self.checkBox_51.text())
+            lista.append(self.checkBox_51.text())
         if self.checkBox_52.checkState():
-            vett.append(self.checkBox_52.text())
+            lista.append(self.checkBox_52.text())
         if self.checkBox_53.checkState():
-            vett.append(self.checkBox_53.text())
+            lista.append(self.checkBox_53.text())
         if self.checkBox_54.checkState():
-            vett.append(self.checkBox_54.text())
+            lista.append(self.checkBox_54.text())
         if self.checkBox_55.checkState():
-            vett.append(self.checkBox_55.text())
+            lista.append(self.checkBox_55.text())
         if self.checkBox_56.checkState():
-            vett.append(self.checkBox_56.text())
+            lista.append(self.checkBox_56.text())
         if self.checkBox_57.checkState():
-            vett.append(self.checkBox_57.text())
+            lista.append(self.checkBox_57.text())
         if self.checkBox_58.checkState():
-            vett.append(self.checkBox_58.text())
+            lista.append(self.checkBox_58.text())
         if self.checkBox_59.checkState():
-            vett.append(self.checkBox_59.text())
+            lista.append(self.checkBox_59.text())
         if self.checkBox_60.checkState():
-            vett.append(self.checkBox_60.text())
+            lista.append(self.checkBox_60.text())
         if self.checkBox_61.checkState():
-            vett.append(self.checkBox_61.text())
+            lista.append(self.checkBox_61.text())
         if self.checkBox_62.checkState():
-            vett.append(self.checkBox_62.text())
+            lista.append(self.checkBox_62.text())
         if self.checkBox_63.checkState():
-            vett.append(self.checkBox_63.text())
+            lista.append(self.checkBox_63.text())
         if self.checkBox_64.checkState():
-            vett.append(self.checkBox_64.text())
+            lista.append(self.checkBox_64.text())
         if self.checkBox_65.checkState():
-            vett.append(self.checkBox_65.text())
+            lista.append(self.checkBox_65.text())
         if self.checkBox_66.checkState():
-            vett.append(self.checkBox_66.text())
+            lista.append(self.checkBox_66.text())
         if self.checkBox_67.checkState():
-            vett.append(self.checkBox_67.text())
+            lista.append(self.checkBox_67.text())
         if self.checkBox_68.checkState():
-            vett.append(self.checkBox_68.text())
+            lista.append(self.checkBox_68.text())
         if self.checkBox_69.checkState():
-            vett.append(self.checkBox_69.text())
+            lista.append(self.checkBox_69.text())
         if self.checkBox_70.checkState():
-            vett.append(self.checkBox_70.text())
+            lista.append(self.checkBox_70.text())
         if self.checkBox_71.checkState():
-            vett.append(self.checkBox_71.text())
+            lista.append(self.checkBox_71.text())
         if self.checkBox_72.checkState():
-            vett.append(self.checkBox_72.text())
+            lista.append(self.checkBox_72.text())
         if self.checkBox_73.checkState():
-            vett.append(self.checkBox_73.text())
+            lista.append(self.checkBox_73.text())
         if self.checkBox_74.checkState():
-            vett.append(self.checkBox_74.text())
+            lista.append(self.checkBox_74.text())
         if self.checkBox_75.checkState():
-            vett.append(self.checkBox_75.text())
+            lista.append(self.checkBox_75.text())
         if self.checkBox_76.checkState():
-            vett.append(self.checkBox_76.text())
+            lista.append(self.checkBox_76.text())
         if self.checkBox_77.checkState():
-            vett.append(self.checkBox_77.text())
+            lista.append(self.checkBox_77.text())
         if self.checkBox_78.checkState():
-            vett.append(self.checkBox_78.text())
+            lista.append(self.checkBox_78.text())
         if self.checkBox_79.checkState():
-            vett.append(self.checkBox_79.text())
+            lista.append(self.checkBox_79.text())
         if self.checkBox_80.checkState():
-            vett.append(self.checkBox_80.text())
+            lista.append(self.checkBox_80.text())
         if self.checkBox_81.checkState():
-            vett.append(self.checkBox_81.text())
+            lista.append(self.checkBox_81.text())
         if self.checkBox_82.checkState():
-            vett.append(self.checkBox_82.text())
+            lista.append(self.checkBox_82.text())
         if self.checkBox_83.checkState():
-            vett.append(self.checkBox_83.text())
+            lista.append(self.checkBox_83.text())
         if self.checkBox_84.checkState():
-            vett.append(self.checkBox_84.text())
+            lista.append(self.checkBox_84.text())
         if self.checkBox_85.checkState():
-            vett.append(self.checkBox_85.text())
+            lista.append(self.checkBox_85.text())
         if self.checkBox_86.checkState():
-            vett.append(self.checkBox_86.text())
+            lista.append(self.checkBox_86.text())
         if self.checkBox_87.checkState():
-            vett.append(self.checkBox_87.text())
+            lista.append(self.checkBox_87.text())
         if self.checkBox_88.checkState():
-            vett.append(self.checkBox_88.text())
+            lista.append(self.checkBox_88.text())
         if self.checkBox_89.checkState():
-            vett.append(self.checkBox_89.text())
+            lista.append(self.checkBox_89.text())
         if self.checkBox_90.checkState():
-            vett.append(self.checkBox_90.text())
+            lista.append(self.checkBox_90.text())
         if self.checkBox_91.checkState():
-            vett.append(self.checkBox_91.text())
+            lista.append(self.checkBox_91.text())
         if self.checkBox_92.checkState():
-            vett.append(self.checkBox_92.text())
+            lista.append(self.checkBox_92.text())
         if self.checkBox_93.checkState():
-            vett.append(self.checkBox_93.text())
+            lista.append(self.checkBox_93.text())
         if self.checkBox_94.checkState():
-            vett.append(self.checkBox_94.text())
+            lista.append(self.checkBox_94.text())
         if self.checkBox_95.checkState():
-            vett.append(self.checkBox_95.text())
+            lista.append(self.checkBox_95.text())
         if self.checkBox_97.checkState():
-            vett.append(self.checkBox_97.text())
+            lista.append(self.checkBox_97.text())
         if self.checkBox_98.checkState():
-            vett.append(self.checkBox_98.text())
+            lista.append(self.checkBox_98.text())
         if self.checkBox_100.checkState():
-            vett.append(self.checkBox_100.text())
+            lista.append(self.checkBox_100.text())
         if self.checkBox_101.checkState():
-            vett.append(self.checkBox_101.text())
+            lista.append(self.checkBox_101.text())
         if self.checkBox_102.checkState():
-            vett.append(self.checkBox_102.text())
+            lista.append(self.checkBox_102.text())
         if self.checkBox_103.checkState():
-            vett.append(self.checkBox_103.text())
+            lista.append(self.checkBox_103.text())
         if self.checkBox_105.checkState():
-            vett.append(self.checkBox_105.text())
+            lista.append(self.checkBox_105.text())
         if self.checkBox_107.checkState():
-            vett.append(self.checkBox_107.text())
+            lista.append(self.checkBox_107.text())
         if self.checkBox_108.checkState():
-            vett.append(self.checkBox_108.text())
+            lista.append(self.checkBox_108.text())
         if self.checkBox_110.checkState():
-            vett.append(self.checkBox_110.text())
+            lista.append(self.checkBox_110.text())
 
 
-        for elem in vett:
+        for elem in lista:
             self.listWidget.addItem(elem)
 
     def pulisci_lista(self):
@@ -239,7 +240,7 @@ class allenamento_staff(object):
         self.lineEdit.hide()
         self.lineEdit_2.hide()
         self.lineEdit_3.hide()
-        self.pushButton_3.hide()
+        self.btnSalvaScheda.hide()
         self.lblInfo1.hide()
         self.lblInfo2.hide()
         self.lineEdit.setText("")
@@ -254,7 +255,7 @@ class allenamento_staff(object):
         self.lineEdit.show()
         self.lineEdit_2.show()
         self.lineEdit_3.show()
-        self.pushButton_3.show()
+        self.btnSalvaScheda.show()
         self.lblInfo1.show()
         self.lblInfo2.show()
         self.lineEdit.setText("")
@@ -265,19 +266,19 @@ class allenamento_staff(object):
         esercizio = self.listWidget.currentItem().text()
 
         if self.lineEdit.text() == "" or self.lineEdit_2.text() == "" or self.lineEdit_3.text() == "":
-            self.msg.show_popup_ok("Devi prima riempire tutte le caselle!")
+            self.msg_box.show_popup_ok("Devi prima riempire tutte le caselle!")
         else:
-            self.vett.append(esercizio + "-" + self.lineEdit.text() + "-"
-                             + self.lineEdit_2.text() + "-" + self.lineEdit_3.text() + "-")
+            self.lista_esercizi.append(esercizio + "-" + self.lineEdit.text() + "-"
+                                       + self.lineEdit_2.text() + "-" + self.lineEdit_3.text() + "-")
             self.nascondi()
             self.lblSalvataggio.show()
-            self.pushButton.show()
+            self.btnInvia.show()
 
     # controlla se l'utente ha già salvato un determinato esercizio
     def controllo_salvataggio(self):
         esercizio = self.listWidget.currentItem().text()
-        if self.vett:
-            for es in self.vett:
+        if self.lista_esercizi:
+            for es in self.lista_esercizi:
                 if esercizio == es.split("-")[0]:   # analizza la stringa nel vettore fino al -
                     self.nascondi()                 # se lo ha già salvato non compaiono le textbox
                     self.lblSalvataggio.show()
@@ -288,45 +289,43 @@ class allenamento_staff(object):
             self.appari()
 
     def controlloEsistenza(self):
-
         cliente = Client()
         cliente = cliente.getObject(self.username.replace(" ", ""))
         path = "Staff/Allenamento_staff/file_scheda_allenamento"
-        listafiles = [f for f in listdir(path) if isfile(join(path, f))]
-        for elem in listafiles:
+        lista_files = [f for f in listdir(path) if isfile(join(path, f))]
+        for elem in lista_files:
             if elem == cliente.name + " " + cliente.surname + ".txt":
                 with open(path+"/"+cliente.name+" "+cliente.surname+".txt", "r") as openfile:
                     lettura = openfile.readline()
                     str = lettura.split("-")
                     if QDate.fromString(str[1][:-1], "dd/MM/yyyy") > QDate.currentDate():
-                        msgBox = QMessageBox()
-                        msgBox.setWindowTitle("Scheda esistente")
-                        msgBox.setText("Esiste già una scheda di allenamento terminante in data "+str[1])
-                        msgBox.setInformativeText("Sovrascrivere?")
-                        msgBox.setStandardButtons(QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel)
-                        msgBox.setDefaultButton(QMessageBox.Save)
-                        ret = msgBox.exec_()
-                        if ret == QMessageBox.Save:
+                        msg_box = QMessageBox()
+                        msg_box.setWindowTitle("Scheda esistente")
+                        msg_box.setText("Esiste già una scheda di allenamento terminante in data " + str[1])
+                        msg_box.setInformativeText("Sovrascrivere?")
+                        msg_box.setStandardButtons(QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel)
+                        msg_box.setDefaultButton(QMessageBox.Save)
+                        risposta = msg_box.exec_()
+                        if risposta == QMessageBox.Save:
                             return True
                         return False
                     return True
         return True
 
     def invia_cliente(self):
-
         if self.controlloEsistenza():
             file = open("./Staff/Allenamento_staff/file_scheda_allenamento/" + self.username + ".txt", "w")
             file.write(self.dateEdit.text() + "-" + self.dateEdit_2.text())
             file.write("\n")
-            for elem in self.vett:
+            for elem in self.lista_esercizi:
                 file.write(elem)
-            self.vett.clear()
+            self.lista_esercizi.clear()
             file.close()
             if file.closed:
-                self.msg.show_popup_ok("la scheda è stata inviata correttamente al cliente")
+                self.msg_box.show_popup_ok("la scheda è stata inviata correttamente al cliente")
                 self.finestra.close()
 
-    def setupUi(self, MainWindow,username):
+    def setupUi(self, MainWindow, username):
         self.finestra = MainWindow
         self.username = username
         MainWindow.setObjectName("MainWindow")
@@ -736,16 +735,16 @@ class allenamento_staff(object):
         font.setWeight(75)
         self.label_7.setFont(font)
         self.label_7.setObjectName("label_7")
-        self.label_8 = QtWidgets.QLabel(self.tab_4)
-        self.label_8.setGeometry(QtCore.QRect(20, 6, 281, 20))
+        self.lblUsername = QtWidgets.QLabel(self.tab_4)
+        self.lblUsername.setGeometry(QtCore.QRect(20, 6, 281, 20))
         font = QtGui.QFont()
         font.setBold(True)
         font.setWeight(75)
-        self.label_8.setFont(font)
-        self.label_8.setObjectName("label_8")
-        self.pushButton_3 = QtWidgets.QPushButton(self.tab_4)
-        self.pushButton_3.setGeometry(QtCore.QRect(420, 180, 181, 28))
-        self.pushButton_3.setObjectName("pushButton_3")
+        self.lblUsername.setFont(font)
+        self.lblUsername.setObjectName("label_8")
+        self.btnSalvaScheda = QtWidgets.QPushButton(self.tab_4)
+        self.btnSalvaScheda.setGeometry(QtCore.QRect(420, 180, 181, 28))
+        self.btnSalvaScheda.setObjectName("pushButton_3")
         self.lblInfo1 = QtWidgets.QLabel(self.tab_4)
         self.lblInfo1.setGeometry(QtCore.QRect(310, 30, 421, 21))
         self.lblInfo1.setObjectName("lblInfo1")
@@ -753,9 +752,9 @@ class allenamento_staff(object):
         self.lblInfo2.setGeometry(QtCore.QRect(320, 150, 231, 20))
         self.lblInfo2.setObjectName("lblInfo2")
         self.tabWidget.addTab(self.tab_4, "")
-        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(572, 510, 191, 28))
-        self.pushButton.setObjectName("pushButton")
+        self.btnInvia = QtWidgets.QPushButton(self.centralwidget)
+        self.btnInvia.setGeometry(QtCore.QRect(572, 510, 191, 28))
+        self.btnInvia.setObjectName("pushButton")
         self.dateEdit = QtWidgets.QDateEdit(self.centralwidget)
         self.dateEdit.setGeometry(QtCore.QRect(170, 41, 110, 21))
         self.dateEdit.setCalendarPopup(True)
@@ -778,17 +777,17 @@ class allenamento_staff(object):
         self.tabWidget_2.setCurrentIndex(8)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
         self.lblSalvataggio.hide()
-        self.label_8.setText(self.username)
+        self.lblUsername.setText(self.username)
         self.nascondi()
-        self.pushButton.hide()
+        self.btnInvia.hide()
         self.listWidget.clicked.connect(self.controllo_salvataggio)
-        self.pushButton_3.clicked.connect(self.save_exercise)
+        self.btnSalvaScheda.clicked.connect(self.save_exercise)
         self.dateEdit.setDate(QDate.currentDate())
         self.dateEdit_2.setDate(QDate.currentDate().addMonths(1))
         self.dateEdit.setMinimumDate(QDate.currentDate())
         self.dateEdit_2.setMinimumDate(QDate.currentDate())
         self.tabWidget.tabBarClicked.connect(self.carica_lista)
-        self.pushButton.clicked.connect(self.invia_cliente)
+        self.btnInvia.clicked.connect(self.invia_cliente)
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -913,14 +912,14 @@ class allenamento_staff(object):
         self.label_5.setText(_translate("MainWindow", "Numero di serie:"))
         self.label_6.setText(_translate("MainWindow", "Ripetizioni per serie:"))
         self.label_7.setText(_translate("MainWindow", "Recupero per serie:"))
-        self.label_8.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
-        self.pushButton_3.setText(_translate("MainWindow", "Salva "))
+        self.lblUsername.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
+        self.btnSalvaScheda.setText(_translate("MainWindow", "Salva "))
         self.lblInfo1.setText(
             _translate("MainWindow", "Inserisci numero di serie, di ripetizioni e tempo di recupero dell\'esercizio"))
         self.lblInfo2.setText(_translate("MainWindow", "Premi \"Salva\" per registrare l\'esercizio"))
         self.lblSalvataggio.setText(_translate("MainWindow", "Salvataggio dell'esercizio effettuato!"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), _translate("MainWindow", "Serie/Ripetizioni"))
-        self.pushButton.setText(_translate("MainWindow", "Invia al cliente"))
+        self.btnInvia.setText(_translate("MainWindow", "Invia al cliente"))
 
 
 if __name__ == "__main__":

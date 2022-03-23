@@ -16,89 +16,89 @@ from Staff.Dieta_staff.dieta_personale import dieta_staff
 
 class GUI_staff(object):
 
-    gestOrario = Orario()
-    obj = Client()
+    gestione_orario = Orario()
+    cliente = Client()
     username = ""
-    usernameCl = ""
-    messanger = Messaggio()
-    msg = messageBox()
+    username_cliente = ""
+    messaggio = Messaggio()
+    msg_box = messageBox()
     lista_messaggi = []
-    listafilesutente = []
+    lista_file_utente = []
 
     def carica(self):
-        self.listWidget.clear()
-        l = self.obj.popolaLista()
+        self.listWidget_allenamento.clear()
+        l = self.cliente.popolaLista()
         if l is not None:
             for x in l:
-                self.listWidget.addItem(x)
-                self.listWidget_3.addItem(x)
-        self.listWidget_2.hide()
-        self.listWidget_5.hide()
+                self.listWidget_allenamento.addItem(x)
+                self.listWidget_dieta.addItem(x)
+        self.listWidget_esercizi.hide()
+        self.listWidget_dati.hide()
 
 
     def open(self):
         try:
             path = "./Cliente/Dieta/file_dieta"
-            listafiles = [f for f in listdir(path) if isfile(join(path, f))]
-            for elem in listafiles:
-                if elem.startswith(self.listWidget_3.currentItem().text().replace(" ", "") + "_dieta_personale_"):
+            lista_file = [f for f in listdir(path) if isfile(join(path, f))]
+            for elem in lista_file:
+                if elem.startswith(self.listWidget_dieta.currentItem().text().replace(" ", "") + "_dieta_personale_"):
                     os.chdir("./Cliente/Dieta/file_dieta")
                     os.system(elem)
                     os.chdir("..")
                     os.chdir("..")
                     os.chdir("..")
         except(Exception):
-            self.msg.show_popup_exception("Errore nell'apertura della dieta.")
+            self.msg_box.show_popup_exception("Errore nell'apertura della dieta.")
 
     def visualizza_esercizi(self):
         try:
-            self.listWidget_2.show()
-            self.listWidget_2.clear()
-            name = self.listWidget.currentItem().text()
-            name = name.replace(" ", "")
-            if os.path.exists("./Cliente/Allenamento/file_allenamento/"+name+".txt"):
-                with open("./Cliente/Allenamento/file_allenamento/"+name+".txt", "r") as openfile:
+            self.listWidget_esercizi.show()
+            self.listWidget_esercizi.clear()
+            nome = self.listWidget_allenamento.currentItem().text()
+            nome = nome.replace(" ", "")
+            if os.path.exists("./Cliente/Allenamento/file_allenamento/" + nome + ".txt"):
+                with open("./Cliente/Allenamento/file_allenamento/" + nome + ".txt", "r") as openfile:
                     lettura = openfile.read()
-                    self.listWidget_2.addItem(lettura)
+                    self.listWidget_esercizi.addItem(lettura)
             else:
-                self.listWidget_2.addItem("Nessun esercizio selezionato dal cliente")
+                self.listWidget_esercizi.addItem("Nessun esercizio selezionato dal cliente")
         except(Exception):
-            self.msg.show_popup_listWidget('non hai selezionato nulla nella lista')
+            self.msg_box.show_popup_listWidget('non hai selezionato nulla nella lista')
 
     def orario(self):
         self.ptxTestoOrario.clear()
-        lavoro = self.gestOrario.controlloLavoro(self.calendarWidget.selectedDate().toString(), self.username)
+        lavoro = self.gestione_orario.controlloLavoro(self.calendarWidget.selectedDate().toString(), self.username)
         for elem in lavoro:
             self.ptxTestoOrario.appendPlainText(
                 "In data " + elem.data + " ti occuperai di " + elem.mansione + " dalle " +
                 elem.ora_inizio + " alle " + elem.ora_fine + "\n")
 
     def visualizza_messaggi(self):
-        self.listWidget_4.clear()
-        self.lista_messaggi = self.messanger.getObject_message(self.username)
+        self.listWidget_messaggi.clear()
+        self.lista_messaggi = self.messaggio.getObject_message(self.username)
         self.lista_messaggi.sort(key=lambda x: x.data, reverse=True)  # ordina la lista messaggi in ordine temporale
         for elem in self.lista_messaggi:
             if elem.mittente == self.username:
-                self.listWidget_4.addItem("messaggio inviato a: " + elem.destinatario + "  -  " + elem.data)
+                self.listWidget_messaggi.addItem("messaggio inviato a: " + elem.destinatario + "  -  " + elem.data)
             elif elem.destinatario == self.username:
-                self.listWidget_4.addItem("messaggio da: " + elem.mittente + "  -  " + elem.data)
+                self.listWidget_messaggi.addItem("messaggio da: " + elem.mittente + "  -  " + elem.data)
 
     def open_window_leggi_messaggio(self):
 
         self.lettura_messaggio = QtWidgets.QMainWindow()
         self.ui = lettura_messaggio()
-        self.ui.setupUi(self.lettura_messaggio,self.messanger, self.username)
+        self.ui.setupUi(self.lettura_messaggio, self.messaggio, self.username)
         self.lettura_messaggio.show()
 
     def open_window_allenamento_staff(self):
         try:
-            self.usernameCl = self.listWidget.currentItem().text()
+            self.username_cliente = self.listWidget_allenamento.currentItem().text()
             self.allenamento_staff = QtWidgets.QMainWindow()
             self.ui = allenamento_staff()
-            self.ui.setupUi(self.allenamento_staff,self.usernameCl)
+            self.ui.setupUi(self.allenamento_staff, self.username_cliente)
             self.allenamento_staff.show()
         except(Exception):
-            self.msg.show_popup_listWidget("non hai selezionato nulla nella lista!")
+            self.msg_box.show_popup_listWidget("non hai selezionato nulla nella lista!")
 
     def open_window_password(self):
         self.password = QtWidgets.QMainWindow()
@@ -107,33 +107,33 @@ class GUI_staff(object):
         self.password.show()
 
     def open_window_message(self):
-        self.casella = QtWidgets.QMainWindow()
+        self.casella_messaggi = QtWidgets.QMainWindow()
         self.ui = Casella_di_messaggio()
-        self.ui.setupUi(self.casella,self.username)
-        self.casella.show()
+        self.ui.setupUi(self.casella_messaggi, self.username)
+        self.casella_messaggi.show()
 
     def open_window_dieta_staff(self):
         self.dieta_staff = QtWidgets.QMainWindow()
         self.ui = dieta_staff()
-        self.ui.setupUi(self.dieta_staff,self.listWidget_3.currentItem().text())
+        self.ui.setupUi(self.dieta_staff, self.listWidget_dieta.currentItem().text())
         self.dieta_staff.show()
 
     def return_message(self):
-        row = self.listWidget_4.currentRow()
-        lista_messaggi_destinatario = self.messanger.getObject_message(self.username)
+        riga = self.listWidget_messaggi.currentRow()
+        lista_messaggi_destinatario = self.messaggio.getObject_message(self.username)
         lista_messaggi_destinatario.sort(key=lambda x: x.data, reverse=True)  # ordina la lista messaggi in ordine temporale
-        self.messanger = lista_messaggi_destinatario[row]
+        self.messaggio = lista_messaggi_destinatario[riga]
         self.open_window_leggi_messaggio()
 
     def elimina_messaggio(self):
 
-        obj = self.lista_messaggi[self.listWidget_4.currentRow()]
-        self.messanger.rimuovi_messaggio(obj)
-        self.listWidget_4.takeItem(self.listWidget_4.currentRow())
+        messaggio = self.lista_messaggi[self.listWidget_messaggi.currentRow()]
+        self.messaggio.rimuovi_messaggio(messaggio)
+        self.listWidget_messaggi.takeItem(self.listWidget_messaggi.currentRow())
         self.visualizza_messaggi()
 
     def nascondi_dieta(self):
-        self.listWidget_5.hide()
+        self.listWidget_dati.hide()
         self.label_8.hide()
         self.label_7.hide()
         self.label_9.hide()
@@ -142,7 +142,7 @@ class GUI_staff(object):
         self.lineEdit_7.hide()
 
     def appari_dieta(self):
-        self.listWidget_5.show()
+        self.listWidget_dati.show()
         self.label_8.show()
         self.label_7.show()
         self.label_9.show()
@@ -151,14 +151,14 @@ class GUI_staff(object):
         self.lineEdit_7.show()
 
     def check_indici_fisiologici(self):
-        cliente_name = self.listWidget_3.currentItem().text()
-        cliente_name = cliente_name.replace(" ", "")
+        nome_cliente = self.listWidget_dieta.currentItem().text()
+        nome_cliente = nome_cliente.replace(" ", "")
         self.lineEdit_6.clear()
         self.lineEdit_5.clear()
         self.lineEdit_7.clear()
         self.nascondi_dieta()
-        if os.path.exists("./Cliente/Dieta/file_dieta/" + cliente_name + ".txt"):
-            with open("./Cliente/Dieta/file_dieta/" + cliente_name + ".txt", "r") as openfile:
+        if os.path.exists("./Cliente/Dieta/file_dieta/" + nome_cliente + ".txt"):
+            with open("./Cliente/Dieta/file_dieta/" + nome_cliente + ".txt", "r") as openfile:
                 lettura = openfile.read()
                 lettura = lettura.split("-")
                 self.appari_dieta()
@@ -168,7 +168,7 @@ class GUI_staff(object):
         else:
             return
 
-    def setupUi(self, MainWindow,username):
+    def setupUi(self, MainWindow, username):
         self.username = username
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(883, 632)
@@ -180,16 +180,16 @@ class GUI_staff(object):
         self.page = QtWidgets.QWidget()
         self.page.setGeometry(QtCore.QRect(0, 0, 701, 407))
         self.page.setObjectName("page")
-        self.listWidget = QtWidgets.QListWidget(self.page)
-        self.listWidget.setGeometry(QtCore.QRect(20, 10, 201, 391))
-        self.listWidget.setObjectName("listWidget")
-        self.listWidget_2 = QtWidgets.QListWidget(self.page)
-        self.listWidget_2.setGeometry(QtCore.QRect(320, 70, 291, 171))
-        self.listWidget_2.setAcceptDrops(False)
-        self.listWidget_2.setObjectName("listWidget_2")
-        self.pushButton_2 = QtWidgets.QPushButton(self.page)
-        self.pushButton_2.setGeometry(QtCore.QRect(412, 370, 251, 28))
-        self.pushButton_2.setObjectName("pushButton_2")
+        self.listWidget_allenamento = QtWidgets.QListWidget(self.page)
+        self.listWidget_allenamento.setGeometry(QtCore.QRect(20, 10, 201, 391))
+        self.listWidget_allenamento.setObjectName("listWidget")
+        self.listWidget_esercizi = QtWidgets.QListWidget(self.page)
+        self.listWidget_esercizi.setGeometry(QtCore.QRect(320, 70, 291, 171))
+        self.listWidget_esercizi.setAcceptDrops(False)
+        self.listWidget_esercizi.setObjectName("listWidget_2")
+        self.btnCreaScheda = QtWidgets.QPushButton(self.page)
+        self.btnCreaScheda.setGeometry(QtCore.QRect(412, 370, 251, 28))
+        self.btnCreaScheda.setObjectName("pushButton_2")
         self.label_12 = QtWidgets.QLabel(self.page)
         self.label_12.setGeometry(QtCore.QRect(0, 10, 701, 401))
         self.label_12.setText("")
@@ -197,9 +197,9 @@ class GUI_staff(object):
         self.label_12.setScaledContents(True)
         self.label_12.setObjectName("label_12")
         self.label_12.raise_()
-        self.listWidget.raise_()
-        self.listWidget_2.raise_()
-        self.pushButton_2.raise_()
+        self.listWidget_allenamento.raise_()
+        self.listWidget_esercizi.raise_()
+        self.btnCreaScheda.raise_()
         self.toolBox.addItem(self.page, "")
         self.page_2 = QtWidgets.QWidget()
         self.page_2.setGeometry(QtCore.QRect(0, 0, 701, 407))
@@ -236,12 +236,12 @@ class GUI_staff(object):
         self.page_3 = QtWidgets.QWidget()
         self.page_3.setGeometry(QtCore.QRect(0, 0, 701, 407))
         self.page_3.setObjectName("page_3")
-        self.listWidget_3 = QtWidgets.QListWidget(self.page_3)
-        self.listWidget_3.setGeometry(QtCore.QRect(10, 10, 201, 391))
-        self.listWidget_3.setObjectName("listWidget_3")
-        self.listWidget_5 = QtWidgets.QListWidget(self.page_3)
-        self.listWidget_5.setGeometry(QtCore.QRect(290, 50, 256, 192))
-        self.listWidget_5.setObjectName("listWidget_5")
+        self.listWidget_dieta = QtWidgets.QListWidget(self.page_3)
+        self.listWidget_dieta.setGeometry(QtCore.QRect(10, 10, 201, 391))
+        self.listWidget_dieta.setObjectName("listWidget_3")
+        self.listWidget_dati = QtWidgets.QListWidget(self.page_3)
+        self.listWidget_dati.setGeometry(QtCore.QRect(290, 50, 256, 192))
+        self.listWidget_dati.setObjectName("listWidget_5")
         self.label_7 = QtWidgets.QLabel(self.page_3)
         self.label_7.setGeometry(QtCore.QRect(320, 190, 81, 20))
         self.label_7.setObjectName("label_7")
@@ -267,9 +267,9 @@ class GUI_staff(object):
         self.label_3.setGeometry(QtCore.QRect(360, 70, 111, 20))
         self.label_3.setText("")
         self.label_3.setObjectName("label_3")
-        self.pushButton_5 = QtWidgets.QPushButton(self.page_3)
-        self.pushButton_5.setGeometry(QtCore.QRect(470, 370, 121, 28))
-        self.pushButton_5.setObjectName("pushButton_5")
+        self.btnCreaDieta = QtWidgets.QPushButton(self.page_3)
+        self.btnCreaDieta.setGeometry(QtCore.QRect(470, 370, 121, 28))
+        self.btnCreaDieta.setObjectName("pushButton_5")
         self.btnApriDieta = QtWidgets.QPushButton(self.page_3)
         self.btnApriDieta.setGeometry(QtCore.QRect(470, 330, 121, 28))
         self.btnApriDieta.setObjectName("btnApriDieta")
@@ -280,8 +280,8 @@ class GUI_staff(object):
         self.label_10.setScaledContents(True)
         self.label_10.setObjectName("label_10")
         self.label_10.raise_()
-        self.listWidget_3.raise_()
-        self.listWidget_5.raise_()
+        self.listWidget_dieta.raise_()
+        self.listWidget_dati.raise_()
         self.label_7.raise_()
         self.lineEdit_5.raise_()
         self.lineEdit_6.raise_()
@@ -289,15 +289,15 @@ class GUI_staff(object):
         self.lineEdit_7.raise_()
         self.label_9.raise_()
         self.label_3.raise_()
-        self.pushButton_5.raise_()
+        self.btnCreaDieta.raise_()
         self.btnApriDieta.raise_()
         self.toolBox.addItem(self.page_3, "")
         self.page_4 = QtWidgets.QWidget()
         self.page_4.setGeometry(QtCore.QRect(0, 0, 701, 407))
         self.page_4.setObjectName("page_4")
-        self.listWidget_4 = QtWidgets.QListWidget(self.page_4)
-        self.listWidget_4.setGeometry(QtCore.QRect(70, 90, 441, 251))
-        self.listWidget_4.setObjectName("listWidget_4")
+        self.listWidget_messaggi = QtWidgets.QListWidget(self.page_4)
+        self.listWidget_messaggi.setGeometry(QtCore.QRect(70, 90, 441, 251))
+        self.listWidget_messaggi.setObjectName("listWidget_4")
         self.btnAggiornaMex = QtWidgets.QPushButton(self.page_4)
         self.btnAggiornaMex.setGeometry(QtCore.QRect(475, 95, 31, 31))
         icon = QtGui.QIcon()
@@ -306,12 +306,12 @@ class GUI_staff(object):
         self.btnAggiornaMex.setIcon(icon)
         self.btnAggiornaMex.setIconSize(QtCore.QSize(50, 50))
         self.btnAggiornaMex.setObjectName("btnAggiornaMex")
-        self.pushButton_7 = QtWidgets.QPushButton(self.page_4)
-        self.pushButton_7.setGeometry(QtCore.QRect(530, 210, 141, 28))
-        self.pushButton_7.setObjectName("pushButton_7")
-        self.pushButton_8 = QtWidgets.QPushButton(self.page_4)
-        self.pushButton_8.setGeometry(QtCore.QRect(530, 260, 141, 28))
-        self.pushButton_8.setObjectName("pushButton_8")
+        self.btnApriMessaggio = QtWidgets.QPushButton(self.page_4)
+        self.btnApriMessaggio.setGeometry(QtCore.QRect(530, 210, 141, 28))
+        self.btnApriMessaggio.setObjectName("pushButton_7")
+        self.btnEliminaMessaggio = QtWidgets.QPushButton(self.page_4)
+        self.btnEliminaMessaggio.setGeometry(QtCore.QRect(530, 260, 141, 28))
+        self.btnEliminaMessaggio.setObjectName("pushButton_8")
         self.label_5 = QtWidgets.QLabel(self.page_4)
         self.label_5.setGeometry(QtCore.QRect(170, 30, 311, 31))
         font = QtGui.QFont()
@@ -320,9 +320,9 @@ class GUI_staff(object):
         font.setWeight(75)
         self.label_5.setFont(font)
         self.label_5.setObjectName("label_5")
-        self.pushButton_6 = QtWidgets.QPushButton(self.page_4)
-        self.pushButton_6.setGeometry(QtCore.QRect(530, 300, 141, 28))
-        self.pushButton_6.setObjectName("pushButton_6")
+        self.btnPassword = QtWidgets.QPushButton(self.page_4)
+        self.btnPassword.setGeometry(QtCore.QRect(530, 300, 141, 28))
+        self.btnPassword.setObjectName("pushButton_6")
         self.label_6 = QtWidgets.QLabel(self.page_4)
         self.label_6.setGeometry(QtCore.QRect(0, 0, 701, 401))
         self.label_6.setText("")
@@ -336,12 +336,12 @@ class GUI_staff(object):
         self.label_13.setScaledContents(True)
         self.label_13.setObjectName("label_13")
         self.label_6.raise_()
-        self.listWidget_4.raise_()
-        self.pushButton_7.raise_()
-        self.pushButton_8.raise_()
+        self.listWidget_messaggi.raise_()
+        self.btnApriMessaggio.raise_()
+        self.btnEliminaMessaggio.raise_()
         self.btnAggiornaMex.raise_()
         self.label_5.raise_()
-        self.pushButton_6.raise_()
+        self.btnPassword.raise_()
         self.label_13.raise_()
         self.toolBox.addItem(self.page_4, "")
         MainWindow.setCentralWidget(self.centralwidget)
@@ -357,23 +357,23 @@ class GUI_staff(object):
         self.toolBox.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-        self.messanger.recuperaSalvataggio("./Data/casella_di_messaggi/messaggi.txt")
+        self.messaggio.recuperaSalvataggio("./Data/casella_di_messaggi/messaggi.txt")
         self.visualizza_messaggi()
-        self.pushButton_5.hide()
+        self.btnCreaDieta.hide()
         self.btnApriDieta.hide()
         self.carica()
         self.nascondi_dieta()
-        self.listWidget_3.clicked.connect(self.check_indici_fisiologici)
-        self.listWidget_3.clicked.connect(self.pushButton_5.show)
-        self.listWidget_3.clicked.connect(self.btnApriDieta.show)
-        self.listWidget.clicked.connect(self.visualizza_esercizi)
-        self.pushButton_2.clicked.connect(self.open_window_allenamento_staff)
-        self.pushButton_6.clicked.connect(self.open_window_password)
-        self.pushButton_7.clicked.connect(self.open_window_message)
-        self.listWidget_4.doubleClicked.connect(self.return_message)
-        self.pushButton_8.clicked.connect(self.elimina_messaggio)
-        self.pushButton_5.clicked.connect(self.open_window_dieta_staff)
-        self.gestOrario.recuperaSalvataggio("./Admin/gestione_personale/TurniStaff.txt")
+        self.listWidget_dieta.clicked.connect(self.check_indici_fisiologici)
+        self.listWidget_dieta.clicked.connect(self.btnCreaDieta.show)
+        self.listWidget_dieta.clicked.connect(self.btnApriDieta.show)
+        self.listWidget_allenamento.clicked.connect(self.visualizza_esercizi)
+        self.btnCreaScheda.clicked.connect(self.open_window_allenamento_staff)
+        self.btnPassword.clicked.connect(self.open_window_password)
+        self.btnApriMessaggio.clicked.connect(self.open_window_message)
+        self.listWidget_messaggi.doubleClicked.connect(self.return_message)
+        self.btnEliminaMessaggio.clicked.connect(self.elimina_messaggio)
+        self.btnCreaDieta.clicked.connect(self.open_window_dieta_staff)
+        self.gestione_orario.recuperaSalvataggio("./Admin/gestione_personale/TurniStaff.txt")
         self.calendarWidget.clicked.connect(self.orario)
         self.calendarWidget.setMinimumDate(QDate.currentDate())
         self.calendarWidget.setMaximumDate(QDate.currentDate().addMonths(3))
@@ -385,21 +385,21 @@ class GUI_staff(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.pushButton_2.setText(_translate("MainWindow", "Crea scheda di allenamento"))
+        self.btnCreaScheda.setText(_translate("MainWindow", "Crea scheda di allenamento"))
         self.toolBox.setItemText(self.toolBox.indexOf(self.page), _translate("MainWindow", "Allenamento"))
         self.label.setText(_translate("MainWindow", "Il tuo orario lavorativo:"))
         self.toolBox.setItemText(self.toolBox.indexOf(self.page_2), _translate("MainWindow", "Orario"))
         self.label_7.setText(_translate("MainWindow", "FABBISOGNO"))
         self.label_8.setText(_translate("MainWindow", "PESO FORMA:"))
         self.label_9.setText(_translate("MainWindow", "BMI:"))
-        self.pushButton_5.setText(_translate("MainWindow", "Crea una dieta"))
+        self.btnCreaDieta.setText(_translate("MainWindow", "Crea una dieta"))
         self.btnApriDieta.setText(_translate("MainWindow", "Apri dieta"))
         self.toolBox.setItemText(self.toolBox.indexOf(self.page_3), _translate("MainWindow", "Dieta"))
-        self.pushButton_7.setText(_translate("MainWindow", "Scrivi Messaggio"))
-        self.pushButton_8.setText(_translate("MainWindow", "Elimina Messaggio"))
+        self.btnApriMessaggio.setText(_translate("MainWindow", "Scrivi Messaggio"))
+        self.btnEliminaMessaggio.setText(_translate("MainWindow", "Elimina Messaggio"))
         self.label_5.setText(_translate("MainWindow",
                                         "<html><head/><body><p align=\"center\"><span style=\" color:#55aa00;\">BACHECA MESSAGGI</span></p><p align=\"center\"><span style=\" color:#55aa00;\"><br/></span></p></body></html>"))
-        self.pushButton_6.setText(_translate("MainWindow", "Cambia password"))
+        self.btnPassword.setText(_translate("MainWindow", "Cambia password"))
         self.toolBox.setItemText(self.toolBox.indexOf(self.page_4), _translate("MainWindow", "Bacheca"))
 
 
