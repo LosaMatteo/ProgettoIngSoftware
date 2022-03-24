@@ -1,7 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QDate
-from Python.Cliente.Prenotazioni.gestionePrenotazioni import GestionePrenotazioniCorsi
-from Python.Data.MessageBox import messageBox
+from Cliente.Prenotazioni.gestionePrenotazioni import GestionePrenotazioniCorsi
+from Data.MessageBox import messageBox
 
 
 class prenotazione_zumba(object):

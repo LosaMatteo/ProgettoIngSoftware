@@ -10,7 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 
-from Python.Data.MessageBox import messageBox
+from Data.MessageBox import messageBox
 
 
 class allenamento(object):

@@ -11,9 +11,8 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QTableWidgetItem
-from Python.Data.MessageBox import messageBox
-
-from Python.Model.Cliente import Cliente
+from Data.MessageBox import messageBox
+from Model.Cliente import Cliente
 
 
 class scheda_allenamento(object):

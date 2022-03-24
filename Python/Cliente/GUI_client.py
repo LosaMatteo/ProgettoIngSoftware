@@ -3,17 +3,17 @@ from os import listdir
 from os.path import isfile, join
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QDate
-from Python.Cliente.Allenamento.scheda_allenamento import scheda_allenamento
-from Python.Cliente.Dieta.dieta_cliente import dieta_cliente
-from Python.Cliente.Prenotazioni.gestionePrenotazioni import GestionePrenotazioniCorsi
-from Python.Data.MessageBox import messageBox
-from Python.Data.casella_di_messaggi.Casella_di_messaggio import Casella_di_messaggio
-from Python.Data.casella_di_messaggi.leggi_messaggio import lettura_messaggio
-from Python.Data.interface_password import change_password
-from Python.Cliente.Allenamento.Allenamenti import allenamento
-from Python.Cliente.Prenotazioni.Prenotazioni1 import prenotazioni
-from Python.Model.Cliente import Cliente
-from Python.Model.Messaggio import Messaggio
+from Cliente.Allenamento.scheda_allenamento import scheda_allenamento
+from Cliente.Dieta.dieta_cliente import dieta_cliente
+from Cliente.Prenotazioni.gestionePrenotazioni import GestionePrenotazioniCorsi
+from Data.MessageBox import messageBox
+from Data.casella_di_messaggi.Casella_di_messaggio import Casella_di_messaggio
+from Data.casella_di_messaggi.leggi_messaggio import lettura_messaggio
+from Data.interface_password import change_password
+from Cliente.Allenamento.Allenamenti import allenamento
+from Cliente.Prenotazioni.Prenotazioni1 import prenotazioni
+from Model.Cliente import Cliente
+from Model.Messaggio import Messaggio
 
 
 class GUI_client(object):

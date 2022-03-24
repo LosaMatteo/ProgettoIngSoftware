@@ -5,8 +5,8 @@ from os.path import isfile, join
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QDate
 from PyQt5.QtWidgets import QFileDialog
-from Python.Model.Cliente import Cliente
-from Python.Data.MessageBox import messageBox
+from Model.Cliente import Cliente
+from Data.MessageBox import messageBox
 import shutil
 import os
 

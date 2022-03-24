@@ -1,8 +1,8 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from Python.Data.MessageBox import messageBox
-from Python.Model.Cliente import Cliente
-from Python.Model.Personale import Personale
-from Python.Model.Messaggio import Messaggio
+from Data.MessageBox import messageBox
+from Model.Cliente import Cliente
+from Model.Personale import Personale
+from Model.Messaggio import Messaggio
 from datetime import datetime
 
 

@@ -1,9 +1,9 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from Python.Cliente.Dieta.dieta_chetogenica import dieta_chetogenica
-from Python.Cliente.Dieta.dieta_ipercalorica import dieta_ipercalorica
-from Python.Cliente.Dieta.dieta_ipocalorica import dieta_ipocalorica
-from Python.Data.MessageBox import messageBox
-from Python.Model.Cliente import Cliente
+from Cliente.Dieta.dieta_chetogenica import dieta_chetogenica
+from Cliente.Dieta.dieta_ipercalorica import dieta_ipercalorica
+from Cliente.Dieta.dieta_ipocalorica import dieta_ipocalorica
+from Data.MessageBox import messageBox
+from Model.Cliente import Cliente
 
 
 class dieta_cliente(object):

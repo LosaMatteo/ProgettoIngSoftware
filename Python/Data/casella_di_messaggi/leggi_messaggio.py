@@ -1,6 +1,6 @@
 from PyQt5 import QtCore, QtWidgets
-from Python.Data.casella_di_messaggi.casella_risposta import casella_risposta
-from Python.Model.Messaggio import Messaggio
+from Data.casella_di_messaggi.casella_risposta import casella_risposta
+from Model.Messaggio import Messaggio
 
 
 class lettura_messaggio(object):

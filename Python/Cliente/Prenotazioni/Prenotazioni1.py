@@ -1,7 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from Python.Cliente.Prenotazioni.PrenotazioneZumba import prenotazione_zumba
-from Python.Cliente.Prenotazioni.PrenotazioniAllenamentoFunzionale import prenotazioni_allenamento_functional
-from Python.Cliente.Prenotazioni.SalaPesiPrenot import prenotazioni_sala_pesi
+from Cliente.Prenotazioni.PrenotazioneZumba import prenotazione_zumba
+from Cliente.Prenotazioni.PrenotazioniAllenamentoFunzionale import prenotazioni_allenamento_functional
+from Cliente.Prenotazioni.SalaPesiPrenot import prenotazioni_sala_pesi
 
 
 class prenotazioni(object):

@@ -1,7 +1,7 @@
-from Python.Admin.gestione_personale.gestioneorari import GestioneOrari
+from Admin.gestione_personale.gestioneorari import GestioneOrari
 from PyQt5 import QtCore, QtGui, QtWidgets
-from Python.Data.MessageBox import messageBox
-from Python.Model.Personale import Personale
+from Data.MessageBox import messageBox
+from Model.Personale import Personale
 
 
 class gestione_staff(object):

@@ -1,8 +1,8 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from Python.Data.MessageBox import messageBox
-from Python.Model.Cliente import Cliente
-from Python.Admin.gestione_cliente.abbonamento_cliente import abbonamento_cliente
-from Python.Model.Abbonamento import Abbonamento
+from Data.MessageBox import messageBox
+from Model.Cliente import Cliente
+from Admin.gestione_cliente.abbonamento_cliente import abbonamento_cliente
+from Model.Abbonamento import Abbonamento
 
 
 class aggiungi_cliente(object):

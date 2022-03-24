@@ -1,7 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QDate
-from Python.Data.MessageBox import messageBox
-from Python.Model.Cliente import Cliente
+from Data.MessageBox import messageBox
+from Model.Cliente import Cliente
 
 
 class gestione_cliente(object):

@@ -1,14 +1,14 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from Python.Data.MessageBox import messageBox
-from Python.Model.Cliente import Cliente
-from Python.Model.Personale import Personale
+from Data.MessageBox import messageBox
+from Model.Cliente import Cliente
+from Model.Personale import Personale
 
 
 class change_password(object):
     username = ""
     msg = messageBox()
 
-    def imposta_password(self):
+    def impostaPassword(self):
         try:
             objCliente = Cliente()
             objCliente = objCliente.getObject(self.username)
@@ -111,7 +111,7 @@ class change_password(object):
         MainWindow.setStatusBar(self.statusbar)
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-        self.btnSalva.clicked.connect(self.imposta_password)
+        self.btnSalva.clicked.connect(self.impostaPassword)
         self.btnCancella.clicked.connect(self.cancella)
         self.btnMostraPassword.pressed.connect(self.mostraPassword)
         self.btnMostraPassword.clicked.connect(self.nascondiPassword)

@@ -1,10 +1,10 @@
-from Python.Data.casella_di_messaggi.Casella_di_messaggio import Casella_di_messaggio
+from Data.casella_di_messaggi.Casella_di_messaggio import Casella_di_messaggio
 from PyQt5 import QtWidgets, QtCore
 from PyQt5.QtCore import QDate, QRect, Qt, QMetaObject, QCoreApplication
 from PyQt5.QtWidgets import QWidget, QCalendarWidget, QComboBox, QLabel, QDoubleSpinBox, QStatusBar, QPushButton, \
     QPlainTextEdit, QMessageBox
-from Python.Model.Orario import Orario
-from Python.Data.MessageBox import messageBox
+from Model.Orario import Orario
+from Data.MessageBox import messageBox
 
 class GestioneOrari(object):
     msg = messageBox()
@@ -154,6 +154,7 @@ class GestioneOrari(object):
         self.ptxCasella = QPlainTextEdit(self.centralwidget)
         self.ptxCasella.setObjectName(u"ptxCasella")
         self.ptxCasella.setGeometry(QRect(40, 280, 701, 331))
+        self.ptxCasella.setReadOnly(True)
         self.spbPaga = QDoubleSpinBox(self.centralwidget)
         self.spbPaga.setObjectName(u"spbPaga")
         self.spbPaga.setGeometry(QRect(410, 130, 62, 22))

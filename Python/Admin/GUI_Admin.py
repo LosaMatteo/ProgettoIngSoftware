@@ -1,17 +1,17 @@
 from PyQt5 import QtCore, QtWidgets, QtGui
 from PyQt5.QtWidgets import QTableWidgetItem
-from Python.Admin.gestione_cliente.aggiungi_cliente import aggiungi_cliente
-from Python.Admin.gestione_cliente.gestionecliente import gestione_cliente
-from Python.Admin.gestione_attrezzi.agg_attrezzo import agg_attrezzo
-from Python.Admin.gestione_personale.agg_staff import agg_personale
-from Python.Admin.gestione_personale.gestionestaff import gestione_staff
-from Python.Data.MessageBox import messageBox
-from Python.Data.casella_di_messaggi.Casella_di_messaggio import Casella_di_messaggio
-from Python.Data.casella_di_messaggi.leggi_messaggio import lettura_messaggio
-from Python.Model.Cliente import Cliente
-from Python.Model.Attrezzo import Attrezzo
-from Python.Model.Messaggio import Messaggio
-from Python.Model.Personale import Personale
+from Admin.gestione_cliente.aggiungi_cliente import aggiungi_cliente
+from Admin.gestione_cliente.gestionecliente import gestione_cliente
+from Admin.gestione_attrezzi.agg_attrezzo import agg_attrezzo
+from Admin.gestione_personale.agg_staff import agg_personale
+from Admin.gestione_personale.gestionestaff import gestione_staff
+from Data.MessageBox import messageBox
+from Data.casella_di_messaggi.Casella_di_messaggio import Casella_di_messaggio
+from Data.casella_di_messaggi.leggi_messaggio import lettura_messaggio
+from Model.Cliente import Cliente
+from Model.Attrezzo import Attrezzo
+from Model.Messaggio import Messaggio
+from Model.Personale import Personale
 
 
 class GUI_Admin(object):

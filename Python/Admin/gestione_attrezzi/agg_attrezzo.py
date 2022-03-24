@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from Python.Model.Attrezzo import Attrezzo
+from Model.Attrezzo import Attrezzo
 
 class agg_attrezzo(object):
 

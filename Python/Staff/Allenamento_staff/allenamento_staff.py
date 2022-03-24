@@ -3,8 +3,8 @@ from os.path import isfile, join
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QDate
 from PyQt5.QtWidgets import QMessageBox
-from Python.Model.Cliente import Cliente
-from Python.Data.MessageBox import messageBox
+from Model.Cliente import Cliente
+from Data.MessageBox import messageBox
 
 
 class allenamento_staff(object):

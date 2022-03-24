@@ -1,6 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from Python.Data.MessageBox import messageBox
-from Python.Model.Messaggio import Messaggio
+from Data.MessageBox import messageBox
+from Model.Messaggio import Messaggio
 from datetime import datetime
 
 

@@ -1,4 +1,4 @@
-from Python.Data.gestioneObject import gestObj
+from Data.gestioneObject import gestObj
 
 
 class Attrezzo(object):
