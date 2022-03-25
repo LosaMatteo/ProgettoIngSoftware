@@ -106,7 +106,6 @@ class GUI_Admin(object):
         self.window.show()
 
     def rimuoviAttrezzo(self):
-
         try:
             if self.tblAttrezzi.currentItem().isSelected():
                 objAttrezzo = Attrezzo()
@@ -312,6 +311,7 @@ class GUI_Admin(object):
         self.btnRimuoviAttrezzi.raise_()
         self.tblAttrezzi.raise_()
         self.btnAggiungiAttrezzi.raise_()
+        self.btnAggiornaAttrezzi.raise_()
         self.tabWidget.addTab(self.TabellaAttrezzi, "")
         self.TabellaMessaggi = QtWidgets.QWidget()
         self.TabellaMessaggi.setObjectName("TabellaMessaggi")

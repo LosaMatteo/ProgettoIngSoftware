@@ -78,7 +78,7 @@ class gestObj(object):
     def addToListAtt(self, obj, lista):
         lista.append([obj.descr, obj.data_ac, obj.quantita, obj.pr_uni, obj.data_man])
 
-    def rimuoviAtt(self, riga, lista):
+    def rimuoviAttrezzo(self, riga, lista):
         lista.remove(lista[riga])
 
     def get_lista(self,lista):

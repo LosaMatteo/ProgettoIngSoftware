@@ -28,7 +28,7 @@ class Attrezzo(object):
         self.gobj.scriviLista(path, self.lista_attrezzi)
 
     def rimuovi(self, riga):
-        self.gobj.rimuoviAttrezzo()
+        self.gobj.rimuoviAttrezzo(riga, self.lista_attrezzi)
         self.scriviLista("./Admin/gestione_attrezzi/listaAttrezzi.txt")
 
 

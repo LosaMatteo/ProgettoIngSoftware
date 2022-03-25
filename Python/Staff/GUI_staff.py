@@ -221,6 +221,7 @@ class GUI_staff(object):
         self.ptxTestoOrario = QtWidgets.QPlainTextEdit(self.page_2)
         self.ptxTestoOrario.setGeometry(QtCore.QRect(180, 280, 281, 91))
         self.ptxTestoOrario.setObjectName("ptxTestoOrario")
+        self.ptxTestoOrario.setReadOnly(True)
         self.label_11 = QtWidgets.QLabel(self.page_2)
         self.label_11.setGeometry(QtCore.QRect(0, 10, 701, 401))
         self.label_11.setText("")

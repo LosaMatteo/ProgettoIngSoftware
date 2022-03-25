@@ -60,7 +60,7 @@ class gestione_cliente(object):
                     self.objCliente.addToList(objCliente)
                     self.objMessaggio.show_popup_ok("Modifiche salvate con successo!")
             except(Exception):
-                self.objMessaggio.show_popup_exception("Errore durante il salvataggio!")
+                self.objMessaggio.show_popup_listWidget("Errore.")
         else:
             self.objMessaggio.show_popup_listWidget("Uno o più campi risultano vuoti.")
 

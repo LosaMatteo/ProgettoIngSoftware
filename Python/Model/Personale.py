@@ -32,7 +32,7 @@ class Personale(object):
         return self.gobj.getAttributi(id, self.lista_staff)
 
     def rimuovi(self, stringa_da_eliminare):
-        self.gobj.rimuovi(stringa_da_eliminare)
+        self.gobj.rimuovi(stringa_da_eliminare, self.lista_staff)
         self.scriviLista("./Admin/gestione_personale/CredenzialiStaff.txt")
 
     def reset(self, name):

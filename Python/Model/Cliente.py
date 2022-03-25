@@ -37,7 +37,7 @@ class Cliente(object):
         self.gobj.scriviLista(path, self.lista_clienti)
 
     def rimuovi(self, stringa_da_eliminare):
-        self.gobj.rimuovi(stringa_da_eliminare)
+        self.gobj.rimuovi(stringa_da_eliminare, self.lista_clienti)
         self.scriviLista("./Admin/gestione_cliente/CredenzialiClienti.txt")
         self.gobj.rimuoviPrenotazioni(stringa_da_eliminare.replace(" ", ""),
                                       "./Cliente/Prenotazioni/file_prenotazioni/salaPesi/")
